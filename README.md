@@ -24,27 +24,87 @@ It also includes a **chatbot support system** to guide users with basic health a
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack (Detailed)
 
-**Frontend**
+### 🎨 Frontend
 
-* HTML, CSS, JavaScript
-
-**Backend**
-
-* Python (Flask)
-
-**Database**
-
-* PostgreSQL
-
-**Libraries**
-
-* Pandas
-* Scikit-learn
-* Joblib
+* **HTML5** – Used for structuring web pages and creating forms for user input (health data, stress questionnaire).
+* **CSS3** – Used for designing responsive and visually appealing UI (layout, colors, styling).
+* **JavaScript** – Handles client-side logic, form validation, API calls, and dynamic updates (dashboard, results, charts).
 
 ---
+
+### ⚙️ Backend
+
+* **Python** – Core programming language used for building application logic and integrating machine learning models.
+* **Flask** – Lightweight web framework used to:
+
+  * Handle routing (API endpoints)
+  * Manage client-server communication
+  * Process user requests and responses
+
+---
+
+### 🗄️ Database
+
+* **PostgreSQL** – Used to store:
+
+  * User authentication data
+  * Health records
+  * Prediction results
+* Ensures reliable and structured data storage.
+
+---
+
+### 🤖 Machine Learning
+
+* **Scikit-learn** – Used for building and training ML models for PCOD prediction.
+* **XGBoost** – Advanced machine learning algorithm used for accurate classification and prediction.
+* **TF-IDF (Term Frequency–Inverse Document Frequency)** – Used in chatbot for text processing and intent recognition.
+
+---
+
+### 📊 Data Processing
+
+* **Pandas** – Used for:
+
+  * Data cleaning
+  * Data preprocessing
+  * Handling datasets efficiently
+
+---
+
+### 💾 Model Storage
+
+* **Joblib** – Used to save and load trained machine learning models efficiently.
+
+---
+
+### 💬 Chatbot System
+
+* Built using:
+
+  * **Natural Language Processing (NLP)** techniques
+  * TF-IDF vectorization for intent classification
+* Helps users with:
+
+  * Stress management tips
+  * Basic health-related queries
+
+---
+
+### 🔐 Authentication & Security
+
+* User login and registration system implemented using Flask
+* Secure handling of user data
+
+---
+
+### 🛠️ Development Tools
+
+* **VS Code** – Code editor used for development
+* **Git & GitHub** – Version control and project hosting
+
 
 
 ## ⚙️ How to Run This Project
@@ -58,19 +118,23 @@ cd ovacare-pcod/backend
 
 ---
 
-### 🔹 Step 2: Create Virtual Environment
+#### 🔹 Step 2: Create Virtual Environment
 
+```bash
 python -m venv env
+```
 
 Activate it:
 
 **Windows**
+```bash
 env\Scripts\activate
+```
 
 **Mac/Linux**
+```bash
 source env/bin/activate
-
----
+```
 
 ### 🔹 Step 3: Install Dependencies
 
