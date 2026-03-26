@@ -46,28 +46,15 @@ It also includes a **chatbot support system** to guide users with basic health a
 
 ---
 
-## 📂 Project Structure
-
-ovacare_pcod/
-│
-├── backend/
-│   ├── app.py
-│   ├── routes/
-│   ├── model/
-│   ├── chatbot/
-│   ├── database/
-│   └── requirements.txt
-│
-├── frontend/
-
----
 
 ## ⚙️ How to Run This Project
 
 ### 🔹 Step 1: Clone Repository
 
+```bash
 git clone https://github.com/Gargi-Saswade09/ovacare-pcod.git
 cd ovacare-pcod/backend
+```
 
 ---
 
