@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>OvaCare - PCOD Wellness</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#ffe4ec;
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 80px;
+background:white;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+flex-wrap:wrap;
+gap:12px;
+position:relative;
+z-index:1000;
+}
+
+.logo{
+font-size:26px;
+font-weight:700;
+color:#ff5f73;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:20px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#1e8f83;
+}
+
+.login-btn{
+background:#1e8f83;
+color:white !important;
+padding:10px 20px;
+border-radius:8px;
+display:inline-block;
+}
+
+/* NAV DROPDOWN */
+.nav-dropdown{
+position:relative;
+}
+
+.dropdown-toggle{
+cursor:pointer;
+font-weight:500;
+color:#333;
+padding:8px 0;
+transition:0.3s;
+}
+
+.dropdown-toggle:hover{
+color:#1e8f83;
+}
+
+.dropdown-menu{
+position:absolute;
+top:42px;
+left:0;
+min-width:220px;
+background:white;
+border-radius:14px;
+box-shadow:0 12px 28px rgba(0,0,0,0.12);
+padding:10px;
+border:1px solid #eee;
+opacity:0;
+visibility:hidden;
+transform:translateY(10px);
+transition:0.25s ease;
+z-index:9999;
+}
+
+.nav-dropdown:hover .dropdown-menu{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+}
+
+.dropdown-menu a{
+display:block;
+padding:12px 14px;
+border-radius:10px;
+color:#333;
+font-weight:500;
+}
+
+.dropdown-menu a:hover{
+background:#eef9f8;
+color:#1e8f83;
+}
+
+/* PROFILE */
+.profile-wrapper{
+position:relative;
+}
+
+.profile-box{
+display:flex;
+align-items:center;
+gap:10px;
+padding:6px 12px;
+border-radius:40px;
+background:#f2f2f2;
+border:2px solid #ddd;
+cursor:pointer;
+transition:0.3s;
+}
+
+.profile-box:hover{
+background:#eef9f8;
+border-color:#1e8f83;
+}
+
+.avatar{
+width:38px;
+height:38px;
+border-radius:50%;
+background:#1e8f83;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:600;
+font-size:16px;
+}
+
+.profile-name{
+font-weight:600;
+color:#222;
+white-space:nowrap;
+}
+
+.profile-dropdown{
+position:absolute;
+right:0;
+top:58px;
+width:280px;
+background:white;
+border-radius:20px;
+box-shadow:0 12px 30px rgba(0,0,0,0.18);
+display:none;
+overflow:hidden;
+z-index:9999;
+border:1px solid #eee;
+}
+
+.profile-header{
+text-align:center;
+padding:22px 20px;
+background:#f7f7f7;
+}
+
+.profile-header .email-text{
+font-size:13px;
+color:#666;
+margin-bottom:14px;
+word-break:break-word;
+}
+
+.big-avatar{
+width:78px;
+height:78px;
+border-radius:50%;
+background:#1e8f83;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:600;
+margin:0 auto 12px;
+}
+
+.profile-header h3{
+font-size:18px;
+margin-bottom:5px;
+color:#222;
+}
+
+.profile-header p{
+font-size:13px;
+color:#666;
+}
+
+.profile-actions{
+display:flex;
+flex-direction:column;
+padding:10px;
+}
+
+.profile-actions a{
+padding:12px 14px;
+border-radius:10px;
+color:#333;
+transition:0.3s;
+}
+
+.profile-actions a:hover{
+background:#eef9f8;
+color:#1e8f83;
+}
+
+/* HERO */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:90px 120px;
+background:linear-gradient(135deg,#ffd6db,#ffeef1);
+gap:40px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:520px;
+}
+
+.tag{
+background:#e7f5f3;
+color:#1e8f83;
+display:inline-block;
+padding:8px 18px;
+border-radius:30px;
+font-size:14px;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:60px;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.hero h1 span{
+color:#1e8f83;
+}
+
+.hero p{
+color:#555;
+line-height:1.6;
+margin-bottom:30px;
+font-size:16px;
+}
+
+.btn{
+padding:14px 26px;
+border-radius:8px;
+text-decoration:none;
+font-weight:500;
+margin-right:15px;
+display:inline-block;
+margin-bottom:10px;
+}
+
+.btn-primary{
+background:#1e8f83;
+color:white !important;
+}
+
+.btn-outline{
+border:2px solid #1e8f83;
+color:#1e8f83;
+background:white;
+}
+
+.hero img{
+width:380px;
+max-width:100%;
+}
+
+/* FEATURES */
+.features{
+background:#f5f5f5;
+padding:100px 120px;
+text-align:center;
+}
+
+.features h2{
+font-size:42px;
+font-family:'Playfair Display',serif;
+margin-bottom:10px;
+}
+
+.features p{
+color:#666;
+margin-bottom:60px;
+font-size:16px;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+}
+
+.card{
+background:#f29c9c;
+padding:40px 30px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:0.3s;
+text-align:left;
+color:white;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card i{
+font-size:28px;
+color:#1e8f83;
+background:white;
+padding:15px;
+border-radius:12px;
+margin-bottom:20px;
+}
+
+.card h3{
+font-size:20px;
+margin-bottom:10px;
+color:white;
+}
+
+.card p{
+font-size:14px;
+color:white;
+line-height:1.6;
+}
+
+/* SECTIONS */
+.section-box{
+padding:80px 120px;
+background:#ffeef1;
+}
+
+.section-title{
+font-size:40px;
+font-family:'Playfair Display',serif;
+margin-bottom:12px;
+text-align:center;
+}
+
+.section-subtitle{
+text-align:center;
+color:#666;
+margin-bottom:45px;
+font-size:16px;
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.info-card{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,0.07);
+}
+
+.info-card h3{
+color:#1e8f83;
+margin-bottom:15px;
+font-size:22px;
+}
+
+.info-card p{
+color:#555;
+line-height:1.7;
+font-size:15px;
+margin-bottom:10px;
+}
+
+.info-card ul{
+padding-left:20px;
+color:#555;
+line-height:1.8;
+}
+
+.notification-item{
+background:#fff3f5;
+border-left:5px solid #ff5f73;
+padding:15px;
+border-radius:10px;
+margin-bottom:12px;
+}
+
+.notification-item strong{
+display:block;
+margin-bottom:5px;
+color:#1e8f83;
+}
+
+.status-badge{
+display:inline-block;
+padding:8px 16px;
+border-radius:20px;
+font-size:14px;
+font-weight:600;
+margin-right:8px;
+margin-bottom:10px;
+}
+
+.status-due{
+background:#ffe1e5;
+color:#c0392b;
+}
+
+.status-ok{
+background:#e7f5f3;
+color:#1e8f83;
+}
+
+.quick-links{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:15px;
+}
+
+.quick-links a{
+text-decoration:none;
+padding:12px 18px;
+border-radius:8px;
+font-weight:500;
+}
+
+.quick-links .filled{
+background:#1e8f83;
+color:white !important;
+}
+
+.quick-links .outline{
+border:2px solid #1e8f83;
+color:#1e8f83;
+background:white;
+}
+
+/* FOOTER */
+footer{
+background:#1e8f83;
+color:white;
+padding:60px 120px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+}
+
+footer h3{
+margin-bottom:15px;
+}
+
+footer p{
+font-size:14px;
+line-height:1.6;
+}
+
+footer a{
+color:white;
+text-decoration:none;
+display:block;
+margin-bottom:8px;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:40px;
+border-top:1px solid rgba(255,255,255,0.3);
+padding-top:20px;
+font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+nav, .hero, .features, .section-box, footer{
+padding-left:20px;
+padding-right:20px;
+}
+
+nav{
+justify-content:center;
+}
+
+nav ul{
+justify-content:center;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.profile-dropdown{
+right:auto;
+left:50%;
+transform:translateX(-50%);
+width:260px;
+}
+
+.dropdown-menu{
+left:50%;
+transform:translateX(-50%) translateY(10px);
+}
+
+.nav-dropdown:hover .dropdown-menu{
+transform:translateX(-50%) translateY(0);
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">💖 OvaCare</div>
+
+<ul>
+<li><a href="{{ url_for('home') }}">Home</a></li>
+<li><a href="{{ url_for('about') }}">About</a></li>
+
+{% if session.get("user_id") %}
+
+<li class="nav-dropdown">
+    <div class="dropdown-toggle">Test</div>
+    <div class="dropdown-menu">
+        <a href="{{ url_for('stress_quiz') }}"><i class="fa-solid fa-brain"></i> Stress Quiz</a>
+        <a href="{{ url_for('pcod_test') }}"><i class="fa-solid fa-heart-pulse"></i> PCOD Test</a>
+        <a href="{{ url_for('bmi') }}"><i class="fa-solid fa-calculator"></i> BMI Calculator</a>
+    </div>
+</li>
+
+<li class="nav-dropdown">
+    <div class="dropdown-toggle">Plan</div>
+    <div class="dropdown-menu">
+        <a href="{{ url_for('diet') }}"><i class="fa-solid fa-utensils"></i> Diet Plan</a>
+        <a href="{{ url_for('exercise') }}"><i class="fa-solid fa-dumbbell"></i> Exercise Plan</a>
+    </div>
+</li>
+
+<li class="nav-dropdown">
+    <div class="dropdown-toggle">Results</div>
+    <div class="dropdown-menu">
+        <a href="{{ url_for('latest_stress_result') }}"><i class="fa-solid fa-file-waveform"></i> Stress Result</a>
+        <a href="{{ url_for('latest_pcod_result') }}"><i class="fa-solid fa-notes-medical"></i> PCOD Result</a>
+    </div>
+</li>
+
+<li><a href="{{ url_for('chatbot') }}">Chatbot</a></li>
+<li><a href="{{ url_for('faq') }}">FAQ</a></li>
+<li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+<li class="profile-wrapper" style="display:flex; align-items:center; gap:10px;">
+
+
+    <!-- 👤 PROFILE -->
+    <div class="profile-box" onclick="toggleProfileMenu()">
+        <div class="avatar">
+            {{ (session.get('user_name') or 'U')[0] | upper }}
+        </div>
+        <span class="profile-name">{{ session.get("user_name") }}</span>
+    </div>
+
+    <div class="profile-dropdown" id="profileMenu">
+        <div class="profile-header">
+            <div class="email-text">{{ session.get('user_email') }}</div>
+            <div class="big-avatar">
+                {{ (session.get('user_name') or 'U')[0] | upper }}
+            </div>
+            <h3>{{ session.get("user_name") }}</h3>
+            <p>Your OvaCare account</p>
+        </div>
+
+        <div class="profile-actions">
+
+    <!-- 🔔 CLICKABLE NOTIFICATION -->
+<div onclick="toggleNotif()" style="cursor:pointer; display:flex; justify-content:space-between; padding:10px;">
+    
+    <span><i class="fa-solid fa-bell"></i> Notifications</span>
+
+    {% if unread_count and unread_count > 0 %}
+    <span style="
+        background:red;
+        color:white;
+        font-size:10px;
+        padding:3px 7px;
+        border-radius:50%;
+    ">
+        {{ unread_count }}
+    </span>
+    {% endif %}
+
+</div>
+
+<!-- 🔽 HIDDEN -->
+<div id="notifSection" style="display:none; padding:10px;">
+
+    {% if notifications %}
+        {% for n in notifications[:5] %}
+            <div style="background:#fff3f5; padding:10px; margin-bottom:8px; border-radius:10px;">
+                <strong>{{ n[1] }}</strong>
+                <p style="font-size:12px; margin:0;">{{ n[2] }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No notifications</p>
+    {% endif %}
+
+    <div style="text-align:right;">
+        <a href="{{ url_for('mark_notifications_read_route') }}">Mark all as read</a>
+    </div>
+
+</div>
+
+    <!-- 👤 Profile Options with Icons -->
+    <a href="{{ url_for('profile') }}">
+        <i class="fa-solid fa-user"></i> My Profile
+    </a>
+
+    <a href="{{ url_for('dashboard') }}">
+        <i class="fa-solid fa-chart-line"></i> Dashboard
+    </a>
+
+    <a href="{{ url_for('logout') }}">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+
+</div>
+    </div>
+</li>
+
+{% else %}
+
+<li><a href="{{ url_for('about') }}">About</a></li>
+
+<li class="nav-dropdown">
+    <div class="dropdown-toggle">Test</div>
+    <div class="dropdown-menu">
+        <a href="{{ url_for('stress_quiz') }}"><i class="fa-solid fa-brain"></i> Stress Quiz</a>
+        <a href="{{ url_for('pcod_test') }}"><i class="fa-solid fa-heart-pulse"></i> PCOD Test</a>
+        <a href="{{ url_for('login') }}"><i class="fa-solid fa-calculator"></i> BMI Calculator</a>
+    </div>
+</li>
+
+<li class="nav-dropdown">
+    <div class="dropdown-toggle">Plan</div>
+    <div class="dropdown-menu">
+        <a href="{{ url_for('diet') }}"><i class="fa-solid fa-utensils"></i> Diet Plan</a>
+        <a href="{{ url_for('exercise') }}"><i class="fa-solid fa-dumbbell"></i> Exercise Plan</a>
+    </div>
+</li>
+
+<li><a href="{{ url_for('chatbot') }}">Chatbot</a></li>
+<li><a href="{{ url_for('faq') }}">FAQ</a></li>
+<li><a href="{{ url_for('contact') }}">Contact</a></li>
+<li><a href="{{ url_for('login') }}" class="login-btn">Login</a></li>
+<li><a href="{{ url_for('register') }}" class="login-btn">Register</a></li>
+
+{% endif %}
+</ul>
+</nav>
+
+<section class="hero">
+<div class="hero-text">
+<div class="tag">
+<i class="fa-solid fa-shield-heart"></i> AI-Powered Health Assessment
+</div>
+
+<h1>
+Early Prediction and Prevention <br>
+for <span>PCOD</span> Wellness
+</h1>
+
+<p>
+OvaCare helps women understand PCOD risk, assess stress levels, calculate BMI, track menstrual health, and explore simple prevention guidance with a user-friendly platform.
+</p>
+
+{% if session.get("user_id") %}
+<a href="{{ url_for('stress_quiz') }}" class="btn btn-primary">Start Weekly Stress Quiz</a>
+<a href="{{ url_for('dashboard') }}" class="btn btn-outline">Open Dashboard</a>
+{% else %}
+<a href="{{ url_for('login') }}" class="btn btn-primary">Login to Start</a>
+<a href="{{ url_for('about') }}" class="btn btn-outline">Learn More</a>
+{% endif %}
+</div>
+
+<div>
+<img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="OvaCare Illustration">
+</div>
+</section>
+
+<section class="features">
+<h2>What OvaCare Helps You Do</h2>
+<p>Explore key features designed for health awareness and early support.</p>
+
+<div class="feature-grid">
+<div class="card">
+<i class="fa-solid fa-heart-pulse"></i>
+<h3>PCOD Risk Prediction</h3>
+<p>Answer health-related questions and get a simple PCOD risk indication with support from your latest stress result.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-brain"></i>
+<h3>Stress Detection Quiz</h3>
+<p>Check your stress level through a guided quiz with result tracking and weekly reminders.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-calculator"></i>
+<h3>BMI Calculator</h3>
+<p>Calculate and store your BMI so your health tracking becomes more personalized and complete.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-comments"></i>
+<h3>Support Chatbot</h3>
+<p>Use the OvaCare chatbot for basic guidance, awareness, and health-related support.</p>
+</div>
+</div>
+</section>
+
+{% if session.get("user_id") %}
+<section class="section-box">
+<h2 class="section-title">Your Health Journey</h2>
+<p class="section-subtitle">Follow your weekly and monthly flow inside OvaCare.</p>
+
+<div class="info-grid">
+<div class="info-card">
+<h3><i class="fa-solid fa-list-check"></i> Recommended Flow</h3>
+<ul>
+<li>Stress Quiz</li>
+<li>Stress Result</li>
+<li>BMI Calculator</li>
+<li>PCOD Test</li>
+<li>PCOD Result</li>
+<li>Diet Plan</li>
+<li>Exercise Plan</li>
+<li>Dashboard</li>
+</ul>
+
+<div class="quick-links">
+<a href="{{ url_for('stress_quiz') }}" class="filled">Start Stress Quiz</a>
+<a href="{{ url_for('bmi') }}" class="outline">BMI Calculator</a>
+<a href="{{ url_for('pcod_test') }}" class="filled">PCOD Test</a>
+<a href="{{ url_for('profile') }}" class="outline">Update Profile</a>
+</div>
+</div>
+
+<div class="info-card">
+<h3><i class="fa-solid fa-bell"></i> Due Status</h3>
+
+{% if stress_due %}
+<span class="status-badge status-due">Weekly Stress Quiz Due</span>
+{% else %}
+<span class="status-badge status-ok">Stress Quiz Up to Date</span>
+{% endif %}
+
+{% if pcod_due %}
+<span class="status-badge status-due">Monthly PCOD Test Due</span>
+{% else %}
+<span class="status-badge status-ok">PCOD Test Up to Date</span>
+{% endif %}
+
+<p style="margin-top:15px;">
+Use the buttons below to add reminders to your Google Calendar or device calendar.
+</p>
+
+<div class="quick-links">
+<a href="{{ stress_calendar_link }}" target="_blank" class="filled">Add Stress Quiz to Google Calendar</a>
+<a href="{{ url_for('download_stress_quiz_ics') }}" class="outline">Download Stress Quiz Reminder</a>
+<a href="{{ pcod_calendar_link }}" target="_blank" class="filled">Add PCOD Test to Google Calendar</a>
+<a href="{{ url_for('download_pcod_test_ics') }}" class="outline">Download PCOD Reminder</a>
+</div>
+</div>
+</div>
+</section>
+
+{% endif %}
+
+<footer>
+<div class="footer-grid">
+<div>
+<h3>OvaCare</h3>
+<p>
+A simple PCOD awareness and wellness support platform focused on prediction, stress detection, BMI tracking, menstrual health details, and prevention guidance.
+</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<a href="{{ url_for('about') }}">About</a>
+<a href="{{ url_for('profile') if session.get('user_id') else url_for('login') }}">Profile</a>
+<a href="{{ url_for('stress_quiz') }}">Stress Quiz</a>
+<a href="{{ url_for('bmi') }}">BMI Calculator</a>
+<a href="{{ url_for('pcod_test') }}">PCOD Risk Prediction</a>
+<a href="{{ url_for('diet') }}">Diet Plan</a>
+<a href="{{ url_for('exercise') }}">Exercise Plan</a>
+<a href="{{ url_for('chatbot') }}">Chatbot</a>
+</div>
+
+<div>
+<h3>Contact</h3>
+<p>Email: ovacare@gmail.com</p>
+<p>Phone: +91 XXXXX XXXXX</p>
+<p>Mumbai, India</p>
+</div>
+</div>
+
+<div class="footer-bottom">
+© 2026 OvaCare | PCOD Stress Detection & Prevention
+</div>
+</footer>
+
+<script>
+function toggleProfileMenu() {
+    let menu = document.getElementById("profileMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+document.addEventListener("click", function(event) {
+    let wrapper = document.querySelector(".profile-wrapper");
+    let menu = document.getElementById("profileMenu");
+
+    if (wrapper && !wrapper.contains(event.target)) {
+        menu.style.display = "none";
+    }
+});
+</script>
+
+<script>
+function toggleNotifDropdown() {
+    const dropdown = document.getElementById("notifDropdown");
+    dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+}
+
+document.addEventListener("click", function(e) {
+    if (!e.target.closest("#bellDropdown")) {
+        const dropdown = document.getElementById("notifDropdown");
+        if (dropdown) dropdown.style.display = "none";
+    }
+});
+</script>
+
+<script>
+function toggleNotif() {
+    var box = document.getElementById("notifSection");
+
+    if (box.style.display === "block") {
+        box.style.display = "none";
+    } else {
+        box.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

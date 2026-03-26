@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fff0f8, #f3f1ff);
+    color: #2b2340;
+    min-height: 100vh;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #eadcf7;
+    padding: 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.brand {
+    font-size: 26px;
+    font-weight: 700;
+    color: #7c3aed;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #5b4b81;
+    font-weight: 600;
+}
+
+.page-wrapper {
+    width: min(1200px, 92%);
+    margin: 30px auto;
+}
+
+.auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.auth-card,
+.card,
+.hero-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #eadcf7;
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(130, 94, 184, 0.12);
+    padding: 28px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 460px;
+}
+
+.hero-card {
+    margin-bottom: 24px;
+}
+
+.card {
+    margin-bottom: 24px;
+}
+
+.auth-card h1,
+.card h1,
+.hero-card h1 {
+    margin-bottom: 12px;
+    color: #512b81;
+}
+
+.auth-form,
+.form-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+input,
+select,
+textarea,
+button {
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid #d8c7ec;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #9b5de5, #7c3aed);
+    color: white;
+    border: none;
+}
+
+.btn-secondary {
+    background: #f1eafe;
+    color: #6b36b8;
+    border: 1px solid #d8c7ec;
+}
+
+.auth-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.auth-links a {
+    color: #7c3aed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.flash-wrap {
+    margin-bottom: 18px;
+}
+
+.flash-message {
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.flash-message.success { background: #e9fdf0; color: #146c43; }
+.flash-message.info { background: #edf5ff; color: #0b5ed7; }
+.flash-message.warning { background: #fff7e8; color: #b26a00; }
+.flash-message.danger { background: #ffeef1; color: #b42318; }
+
+.grid.two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.grid.one {
+    display: grid;
+    gap: 22px;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.notification-list {
+    display: grid;
+    gap: 14px;
+}
+
+.notification-item {
+    border-left: 6px solid #a855f7;
+    background: #faf6ff;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.notification-item.warning { border-left-color: #f59e0b; }
+.notification-item.success { border-left-color: #10b981; }
+
+.result-box {
+    background: #f8f3ff;
+    border: 1px solid #e6d9fb;
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.sub-card {
+    background: #faf7ff;
+    border-radius: 18px;
+    padding: 18px;
+    margin-top: 16px;
+}
+
+.styled-list {
+    margin-top: 16px;
+    padding-left: 20px;
+    line-height: 1.9;
+}
+
+.flow-list {
+    padding-left: 20px;
+    line-height: 1.9;
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    margin: 10px 0 18px;
+}
+
+.badge.green {
+    background: #e9fdf0;
+    color: #146c43;
+}
+
+.badge.orange {
+    background: #fff4df;
+    color: #b26a00;
+}
+
+.faq-item {
+    background: #faf7ff;
+    border-radius: 18px;
+    padding: 18px;
+    margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+    .grid.two {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

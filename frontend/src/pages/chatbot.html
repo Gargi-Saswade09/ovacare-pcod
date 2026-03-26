@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ovella</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+            font-family:'Poppins',sans-serif;
+        }
+
+        html, body{
+            height:100%;
+        }
+
+        body{
+            min-height:100vh;
+            background:
+                linear-gradient(rgba(247,220,238,0.88), rgba(255,221,231,0.86)),
+                url("/static/images/pcod-bg.jpg");
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            overflow:hidden;
+        }
+
+        /* NAVBAR */
+        nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 80px;
+            background:white;
+            box-shadow:0 4px 10px rgba(0,0,0,0.05);
+            flex-wrap:wrap;
+            gap:12px;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        .logo{
+            font-size:26px;
+            font-weight:700;
+            color:#ff5f73;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:24px;
+            align-items:center;
+            flex-wrap:wrap;
+            margin:0;
+            padding:0;
+        }
+
+        nav ul li{
+            list-style:none;
+        }
+
+        nav a{
+            text-decoration:none;
+            color:#333;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:#1e8f83;
+        }
+
+        .login-btn{
+            background:#1e8f83;
+            color:white !important;
+            padding:10px 20px;
+            border-radius:8px;
+            display:inline-block;
+        }
+
+        /* NAV DROPDOWN */
+        .nav-dropdown{
+            position:relative;
+        }
+
+        .dropdown-toggle{
+            cursor:pointer;
+            font-weight:500;
+            color:#333;
+            padding:8px 0;
+            transition:0.3s;
+        }
+
+        .dropdown-toggle:hover{
+            color:#1e8f83;
+        }
+
+        .dropdown-menu{
+            position:absolute;
+            top:42px;
+            left:0;
+            min-width:220px;
+            background:white;
+            border-radius:14px;
+            box-shadow:0 12px 28px rgba(0,0,0,0.12);
+            padding:10px;
+            border:1px solid #eee;
+            opacity:0;
+            visibility:hidden;
+            transform:translateY(10px);
+            transition:0.25s ease;
+            z-index:9999;
+        }
+
+        .nav-dropdown:hover .dropdown-menu{
+            opacity:1;
+            visibility:visible;
+            transform:translateY(0);
+        }
+
+        .dropdown-menu a{
+            display:block;
+            padding:12px 14px;
+            border-radius:10px;
+            color:#333;
+            font-weight:500;
+            white-space:nowrap;
+        }
+
+        .dropdown-menu a:hover{
+            background:#eef9f8;
+            color:#1e8f83;
+        }
+
+        /* PROFILE */
+        .profile-wrapper{
+            position:relative;
+        }
+
+        .profile-box{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            padding:10px 16px;
+            border-radius:40px;
+            background:#f2f2f2;
+            border:2px solid #ddd;
+            cursor:pointer;
+            transition:0.3s;
+            min-width:170px;
+            justify-content:center;
+        }
+
+        .profile-box:hover{
+            background:#eef9f8;
+            border-color:#1e8f83;
+        }
+
+        .avatar{
+            width:42px;
+            height:42px;
+            border-radius:50%;
+            background:#1e8f83;
+            color:white;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:600;
+            font-size:18px;
+            flex-shrink:0;
+        }
+
+        .profile-name{
+            font-weight:600;
+            color:#222;
+            white-space:nowrap;
+        }
+
+        .profile-dropdown{
+            position:absolute;
+            right:0;
+            top:62px;
+            width:280px;
+            background:white;
+            border-radius:20px;
+            box-shadow:0 12px 30px rgba(0,0,0,0.18);
+            display:none;
+            overflow:hidden;
+            z-index:9999;
+            border:1px solid #eee;
+        }
+
+        .profile-header{
+            text-align:center;
+            padding:22px 20px;
+            background:#f7f7f7;
+        }
+
+        .profile-header .email-text{
+            font-size:13px;
+            color:#666;
+            margin-bottom:14px;
+            word-break:break-word;
+        }
+
+        .big-avatar{
+            width:78px;
+            height:78px;
+            border-radius:50%;
+            background:#1e8f83;
+            color:white;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+            font-weight:600;
+            margin:0 auto 12px;
+        }
+
+        .profile-header h3{
+            font-size:18px;
+            margin-bottom:5px;
+            color:#222;
+        }
+
+        .profile-header p{
+            font-size:13px;
+            color:#666;
+        }
+
+        .profile-actions{
+            display:flex;
+            flex-direction:column;
+            padding:10px;
+        }
+
+        .profile-actions a{
+            padding:12px 14px;
+            border-radius:10px;
+            color:#333;
+            transition:0.3s;
+            display:block;
+            text-decoration:none;
+        }
+
+        .profile-actions a:hover{
+            background:#eef9f8;
+            color:#1e8f83;
+        }
+
+        /* PAGE */
+        .page{
+            width:min(1280px, 94%);
+            margin:24px auto 28px;
+            height:calc(100vh - 120px);
+            overflow:hidden;
+        }
+
+        .chat-shell{
+            display:grid;
+            grid-template-columns:320px 1fr;
+            gap:22px;
+            align-items:stretch;
+            height:100%;
+            min-height:0;
+        }
+
+        .sidebar{
+            background:rgba(255,255,255,0.70);
+            backdrop-filter:blur(12px);
+            border:1px solid rgba(255,255,255,0.5);
+            border-radius:26px;
+            box-shadow:0 12px 34px rgba(0,0,0,0.08);
+            padding:22px;
+            position:sticky;
+            top:105px;
+            overflow-y:auto;
+            min-height:0;
+        }
+
+        .sidebar h3{
+            margin:0 0 10px;
+            color:#333;
+            font-size:22px;
+        }
+
+        .sidebar p{
+            margin:0 0 18px;
+            color:#555;
+            line-height:1.7;
+            font-size:14px;
+        }
+
+        .mini-card{
+            background:rgba(255,255,255,0.78);
+            border:1px solid #f6d6df;
+            border-radius:18px;
+            padding:15px;
+            margin-bottom:14px;
+        }
+
+        .mini-card strong{
+            display:block;
+            color:#d6336c;
+            margin-bottom:8px;
+        }
+
+        .mini-card ul{
+            margin:0;
+            padding-left:18px;
+            color:#555;
+            line-height:1.7;
+            font-size:14px;
+        }
+
+        .quick-grid{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin-top:12px;
+        }
+
+        .chip{
+            border:none;
+            border-radius:999px;
+            background:#fff0f5;
+            color:#d6336c;
+            padding:10px 14px;
+            cursor:pointer;
+            font-weight:700;
+            transition:0.22s;
+        }
+
+        .chip:hover{
+            background:#ffdce8;
+            transform:translateY(-1px);
+        }
+
+        .chat-panel{
+            background:rgba(255,255,255,0.74);
+            backdrop-filter:blur(14px);
+            border:1px solid rgba(255,255,255,0.55);
+            border-radius:28px;
+            box-shadow:0 12px 34px rgba(0,0,0,0.08);
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+            height:100%;
+            min-height:0;
+        }
+
+        .chat-topbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:14px;
+            padding:20px 22px;
+            border-bottom:1px solid #f2d8df;
+            background:rgba(255,255,255,0.62);
+            backdrop-filter:blur(8px);
+            flex-shrink:0;
+        }
+
+        .chat-topbar-left{
+            display:flex;
+            align-items:center;
+            gap:14px;
+        }
+
+        .brand-icon{
+            width:58px;
+            height:58px;
+            border-radius:16px;
+            object-fit:cover;
+            box-shadow:0 8px 18px rgba(255,106,136,0.22);
+            border:2px solid rgba(255,255,255,0.7);
+            background:white;
+            padding:4px;
+        }
+
+        .chat-title{
+            margin:0;
+            color:#333;
+            font-size:24px;
+        }
+
+        .chat-subtitle{
+            margin:5px 0 0;
+            color:#666;
+            font-size:14px;
+        }
+
+        .top-actions{
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+
+        .top-btn{
+            border:none;
+            border-radius:14px;
+            padding:10px 14px;
+            cursor:pointer;
+            font-weight:700;
+            background:#fff0f5;
+            color:#d6336c;
+            transition:0.22s;
+        }
+
+        .top-btn:hover{
+            background:#ffdce8;
+        }
+
+        #chat{
+            flex:1;
+            overflow-y:auto;
+            overflow-x:hidden;
+            padding:24px;
+            min-height:0;
+            scroll-behavior:smooth;
+        }
+
+        #chat::-webkit-scrollbar,
+        .sidebar::-webkit-scrollbar{
+            width:8px;
+        }
+
+        #chat::-webkit-scrollbar-thumb,
+        .sidebar::-webkit-scrollbar-thumb{
+            background:#e2b8c3;
+            border-radius:999px;
+        }
+
+        #chat::-webkit-scrollbar-track,
+        .sidebar::-webkit-scrollbar-track{
+            background:transparent;
+        }
+
+        .welcome-box{
+            background:rgba(255,255,255,0.84);
+            backdrop-filter:blur(8px);
+            border:1px solid #f4dbe3;
+            border-radius:22px;
+            padding:24px;
+            box-shadow:0 8px 22px rgba(0,0,0,0.05);
+            margin-bottom:22px;
+        }
+
+        .welcome-box h2{
+            margin:0 0 10px;
+            color:#333;
+            font-size:25px;
+        }
+
+        .welcome-box p{
+            margin:0;
+            color:#555;
+            line-height:1.75;
+        }
+
+        .message{
+            display:flex;
+            margin:18px 0;
+            animation:fadeIn 0.25s ease;
+        }
+
+        .message.user{
+            justify-content:flex-end;
+        }
+
+        .message.bot{
+            justify-content:flex-start;
+        }
+
+        .message-content{
+            max-width:78%;
+            display:flex;
+            flex-direction:column;
+            gap:7px;
+        }
+
+        .msg-label{
+            font-size:12px;
+            font-weight:700;
+            color:#777;
+            padding:0 6px;
+        }
+
+        .bubble{
+            padding:16px 18px;
+            border-radius:22px;
+            line-height:1.75;
+            font-size:16px;
+            word-wrap:break-word;
+            box-shadow:0 10px 26px rgba(0,0,0,0.06);
+            position:relative;
+        }
+
+        .user .bubble{
+            background:linear-gradient(135deg,#ff6584,#ff8fa3);
+            color:white;
+            border-bottom-right-radius:6px;
+        }
+
+        .bot .bubble{
+            background:rgba(255,255,255,0.88);
+            color:#333;
+            border:1px solid #f1dde4;
+            border-bottom-left-radius:6px;
+        }
+
+        .meta{
+            font-size:12px;
+            color:#666;
+            background:rgba(255,255,255,0.82);
+            border:1px solid #f1dde4;
+            padding:10px 12px;
+            border-radius:14px;
+            line-height:1.5;
+        }
+
+        .typing-wrap{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            color:#666;
+            background:rgba(255,255,255,0.88);
+            border:1px solid #f1dde4;
+            padding:12px 14px;
+            border-radius:16px;
+            width:max-content;
+            box-shadow:0 8px 20px rgba(0,0,0,0.04);
+        }
+
+        .typing-dots{
+            display:flex;
+            gap:5px;
+        }
+
+        .typing-dots span{
+            width:8px;
+            height:8px;
+            border-radius:50%;
+            background:#ff7f96;
+            animation:bounce 1s infinite;
+        }
+
+        .typing-dots span:nth-child(2){
+            animation-delay:0.15s;
+        }
+
+        .typing-dots span:nth-child(3){
+            animation-delay:0.30s;
+        }
+
+        .composer{
+            border-top:1px solid #f1d8df;
+            background:rgba(255,255,255,0.68);
+            backdrop-filter:blur(10px);
+            padding:16px 18px 18px;
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            flex-shrink:0;
+        }
+
+        .suggestion-row{
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+
+        .suggestion-row button{
+            border:none;
+            border-radius:999px;
+            padding:10px 14px;
+            background:#fff0f5;
+            color:#d6336c;
+            cursor:pointer;
+            font-weight:700;
+            transition:0.22s;
+        }
+
+        .suggestion-row button:hover{
+            background:#ffdce8;
+        }
+
+        .input-row{
+            display:flex;
+            gap:12px;
+            align-items:flex-end;
+        }
+
+        .input-box{
+            flex:1;
+            background:rgba(255,255,255,0.86);
+            border:2px solid #f3d8e0;
+            border-radius:20px;
+            padding:12px 14px;
+            transition:0.2s;
+        }
+
+        .input-box:focus-within{
+            border-color:#ff6b81;
+            background:white;
+        }
+
+        textarea{
+            width:100%;
+            border:none;
+            resize:none;
+            outline:none;
+            background:transparent;
+            font-size:16px;
+            min-height:26px;
+            max-height:120px;
+            color:#333;
+            font-family:'Poppins',sans-serif;
+            overflow-y:auto;
+        }
+
+        .send-btn,
+        .clear-btn{
+            border:none;
+            border-radius:18px;
+            padding:14px 18px;
+            font-weight:800;
+            cursor:pointer;
+            transition:0.22s;
+            min-width:108px;
+        }
+
+        .send-btn{
+            background:linear-gradient(135deg,#ff6584,#ff8fa3);
+            color:white;
+            box-shadow:0 10px 20px rgba(255,101,132,0.22);
+        }
+
+        .send-btn:hover{
+            transform:translateY(-1px);
+        }
+
+        .clear-btn{
+            background:#fff0f5;
+            color:#d6336c;
+        }
+
+        .clear-btn:hover{
+            background:#ffdce8;
+        }
+
+        .footer-note{
+            font-size:12px;
+            color:#777;
+            text-align:center;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(6px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        @keyframes bounce{
+            0%,80%,100%{
+                transform:translateY(0);
+                opacity:0.5;
+            }
+            40%{
+                transform:translateY(-5px);
+                opacity:1;
+            }
+        }
+
+        @media(max-width:1000px){
+            body{
+                overflow:auto;
+            }
+
+            .page{
+                height:auto;
+                overflow:visible;
+            }
+
+            .chat-shell{
+                grid-template-columns:1fr;
+                height:auto;
+            }
+
+            .sidebar{
+                position:static;
+                max-height:none;
+            }
+
+            .chat-panel{
+                min-height:76vh;
+                height:auto;
+            }
+        }
+
+        @media(max-width:768px){
+            nav, .page{
+                padding-left:20px;
+                padding-right:20px;
+            }
+
+            nav{
+                justify-content:center;
+            }
+
+            .logo{
+                width:100%;
+                text-align:center;
+                margin-bottom:10px;
+            }
+
+            nav ul{
+                justify-content:center;
+            }
+
+            .dropdown-menu{
+                left:50%;
+                transform:translateX(-50%) translateY(10px);
+            }
+
+            .nav-dropdown:hover .dropdown-menu{
+                transform:translateX(-50%) translateY(0);
+            }
+
+            .profile-dropdown{
+                right:auto;
+                left:50%;
+                transform:translateX(-50%);
+                width:260px;
+            }
+
+            .chat-topbar{
+                flex-direction:column;
+                align-items:flex-start;
+            }
+
+            .message-content{
+                max-width:92%;
+            }
+
+            .input-row{
+                flex-direction:column;
+                align-items:stretch;
+            }
+
+            .send-btn,
+            .clear-btn{
+                width:100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">💖 OvaCare</div>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+
+        {% if session.get("user_id") %}
+
+        <li class="nav-dropdown">
+            <div class="dropdown-toggle">Test</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('stress_quiz') }}"><i class="fa-solid fa-brain"></i> Stress Quiz</a>
+                <a href="{{ url_for('pcod_test') }}"><i class="fa-solid fa-heart-pulse"></i> PCOD Test</a>
+                <a href="{{ url_for('bmi') }}"><i class="fa-solid fa-calculator"></i> BMI Calculator</a>
+            </div>
+        </li>
+
+        <li class="nav-dropdown">
+            <div class="dropdown-toggle">Plan</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('diet') }}"><i class="fa-solid fa-utensils"></i> Diet Plan</a>
+                <a href="{{ url_for('exercise') }}"><i class="fa-solid fa-dumbbell"></i> Exercise Plan</a>
+            </div>
+        </li>
+
+        <li class="nav-dropdown">
+    <div class="dropdown-toggle">Results</div>
+    <div class="dropdown-menu">
+        <a href="{{ url_for('latest_stress_result') }}"><i class="fa-solid fa-file-waveform"></i> Stress Result</a>
+        <a href="{{ url_for('latest_pcod_result') }}"><i class="fa-solid fa-notes-medical"></i> PCOD Result</a>
+    </div>
+</li>
+
+        <li><a href="{{ url_for('chatbot') }}">Chatbot</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+        <li class="profile-wrapper">
+            <div class="profile-box" onclick="toggleProfileMenu()">
+                <div class="avatar">
+                    {{ (session.get('user_name') or 'U')[0] | upper }}
+                </div>
+                <span class="profile-name">{{ session.get('user_name') }}</span>
+            </div>
+
+            <div class="profile-dropdown" id="profileMenu">
+                <div class="profile-header">
+                    <div class="email-text">{{ session.get('user_email', 'your@email.com') }}</div>
+                    <div class="big-avatar">
+                        {{ (session.get('user_name') or 'U')[0] | upper }}
+                    </div>
+                    <h3>{{ session.get('user_name') }}</h3>
+                    <p>Your OvaCare account</p>
+                </div>
+
+                <div class="profile-actions">
+
+    <!-- 🔔 NOTIFICATIONS -->
+    <div onclick="toggleNotif()" style="cursor:pointer; display:flex; justify-content:space-between; padding:10px;">
+        
+        <span><i class="fa-solid fa-bell"></i> Notifications</span>
+
+        {% if unread_count and unread_count > 0 %}
+        <span style="
+            background:red;
+            color:white;
+            font-size:10px;
+            padding:3px 7px;
+            border-radius:50%;
+        ">
+            {{ unread_count }}
+        </span>
+        {% endif %}
+
+    </div>
+
+    <div id="notifSection" style="display:none; padding:10px;">
+
+        {% if notifications %}
+            {% for n in notifications[:5] %}
+                <div style="background:#fff3f5; padding:10px; margin-bottom:8px; border-radius:10px;">
+                    <strong>{{ n[1] }}</strong>
+                    <p style="font-size:12px; margin:0;">{{ n[2] }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No notifications</p>
+        {% endif %}
+
+        <div style="text-align:right;">
+            <a href="{{ url_for('mark_notifications_read_route') }}">Mark all as read</a>
+        </div>
+
+    </div>
+
+    <!-- 👤 MENU -->
+    <a href="{{ url_for('profile') }}">
+        <i class="fa-solid fa-user"></i> My Profile
+    </a>
+
+    <a href="{{ url_for('dashboard') }}">
+        <i class="fa-solid fa-chart-line"></i> Dashboard
+    </a>
+
+    <a href="{{ url_for('logout') }}">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+
+</div>
+            </div>
+        </li>
+
+        {% else %}
+
+        <li class="nav-dropdown">
+            <div class="dropdown-toggle">Test</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('stress_quiz') }}"><i class="fa-solid fa-brain"></i> Stress Quiz</a>
+                <a href="{{ url_for('pcod_test') }}"><i class="fa-solid fa-heart-pulse"></i> PCOD Test</a>
+                <a href="{{ url_for('login') }}"><i class="fa-solid fa-calculator"></i> BMI Calculator</a>
+            </div>
+        </li>
+
+        <li class="nav-dropdown">
+            <div class="dropdown-toggle">Plan</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('diet') }}"><i class="fa-solid fa-utensils"></i> Diet Plan</a>
+                <a href="{{ url_for('exercise') }}"><i class="fa-solid fa-dumbbell"></i> Exercise Plan</a>
+            </div>
+        </li>
+
+        <li><a href="{{ url_for('chatbot') }}">Chatbot</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="{{ url_for('login') }}" class="login-btn">Login</a></li>
+        <li><a href="{{ url_for('register') }}" class="login-btn">Register</a></li>
+
+        {% endif %}
+    </ul>
+</nav>
+
+<div class="page">
+    <div class="chat-shell">
+        <aside class="sidebar">
+            <h3>Meet Ovella 🌸</h3>
+            <p>
+                Your cute and supportive OvaCare assistant for PCOD, periods,
+                stress, food choices, exercise ideas, and website help.
+            </p>
+
+            <div class="mini-card">
+                <strong>Try asking</strong>
+                <ul>
+                    <li>What are symptoms of PCOD?</li>
+                    <li>Best diet for PCOD</li>
+                    <li>I am stressed right now</li>
+                    <li>My periods are irregular</li>
+                    <li>What should I do for heavy bleeding?</li>
+                </ul>
+            </div>
+
+            <div class="mini-card">
+                <strong>Quick topics</strong>
+                <div class="quick-grid">
+                    <button class="chip" onclick="quickAsk('What are symptoms of PCOD?')">PCOD Symptoms</button>
+                    <button class="chip" onclick="quickAsk('Best diet for PCOD')">PCOD Diet</button>
+                    <button class="chip" onclick="quickAsk('I am stressed right now')">Stress Help</button>
+                    <button class="chip" onclick="quickAsk('My periods are irregular')">Periods</button>
+                </div>
+            </div>
+        </aside>
+
+        <section class="chat-panel">
+            <div class="chat-topbar">
+                <div class="chat-topbar-left">
+                    <img src="/static/images/ovella.png" alt="Ovella" class="brand-icon">
+                    <div>
+                        <h1 class="chat-title">Ovella</h1>
+                        <p class="chat-subtitle">Your OvaCare Wellness Assistant</p>
+                    </div>
+                </div>
+
+                <div class="top-actions">
+                    <button class="top-btn" onclick="quickAsk('How can this website help me?')">Website Help</button>
+                    <button class="top-btn" onclick="clearChat()">New Chat</button>
+                </div>
+            </div>
+
+            <div id="chat">
+                <div class="welcome-box">
+                    <h2>Hello! 👋</h2>
+                    <p>
+                        I’m <b>Ovella</b>, your OvaCare wellness assistant. I can help you with
+                        PCOD, periods, stress, food choices, exercise suggestions,
+                        and website guidance in a simple and supportive way.
+                    </p>
+                </div>
+            </div>
+
+            <div class="composer">
+                <div class="suggestion-row">
+                    <button onclick="quickAsk('Best diet for PCOD')">PCOD Diet</button>
+                    <button onclick="quickAsk('How can I reduce stress?')">Stress Relief</button>
+                    <button onclick="quickAsk('Exercise for PCOD')">PCOD Exercise</button>
+                    <button onclick="quickAsk('What should I do for heavy periods?')">Heavy Periods</button>
+                    <button onclick="quickAsk('My periods are delayed')">Delayed Periods</button>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-box">
+                        <textarea id="userInput" rows="1" placeholder="Ask Ovella anything..."></textarea>
+                    </div>
+                    <button class="send-btn" onclick="sendMessage()">Send</button>
+                    <button class="clear-btn" onclick="clearChat()">Clear</button>
+                </div>
+
+                <div class="footer-note">
+                    Educational support only — not a replacement for a doctor or therapist.
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script>
+    function toggleProfileMenu(){
+        let menu=document.getElementById("profileMenu");
+        menu.style.display=(menu.style.display==="block")?"none":"block";
+    }
+
+    document.addEventListener("click",function(e){
+        let wrapper=document.querySelector(".profile-wrapper");
+        let menu=document.getElementById("profileMenu");
+
+        if(wrapper && !wrapper.contains(e.target) && menu){
+            menu.style.display="none";
+        }
+    });
+
+    const chat = document.getElementById("chat");
+    const input = document.getElementById("userInput");
+
+    function escapeHtml(text) {
+        const div = document.createElement("div");
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function formatText(text) {
+        return escapeHtml(text).replace(/\n/g, "<br>");
+    }
+
+    function autoResize() {
+        input.style.height = "auto";
+        input.style.height = Math.min(input.scrollHeight, 120) + "px";
+    }
+
+    function scrollChatToBottom() {
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+    function addMessage(sender, text, metaText = "") {
+        const wrapper = document.createElement("div");
+        wrapper.className = `message ${sender}`;
+
+        const content = document.createElement("div");
+        content.className = "message-content";
+
+        const label = document.createElement("div");
+        label.className = "msg-label";
+        label.textContent = sender === "user" ? "You" : "Ovella";
+
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.innerHTML = formatText(text);
+
+        content.appendChild(label);
+        content.appendChild(bubble);
+
+        if (metaText) {
+            const meta = document.createElement("div");
+            meta.className = "meta";
+            meta.innerHTML = formatText(metaText);
+            content.appendChild(meta);
+        }
+
+        wrapper.appendChild(content);
+        chat.appendChild(wrapper);
+        scrollChatToBottom();
+    }
+
+    function addTyping() {
+        const wrapper = document.createElement("div");
+        wrapper.className = "message bot";
+        wrapper.id = "typing-indicator";
+
+        const content = document.createElement("div");
+        content.className = "message-content";
+
+        const label = document.createElement("div");
+        label.className = "msg-label";
+        label.textContent = "Ovella";
+
+        const typingWrap = document.createElement("div");
+        typingWrap.className = "typing-wrap";
+        typingWrap.innerHTML = `
+            <span>Ovella is typing</span>
+            <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        `;
+
+        content.appendChild(label);
+        content.appendChild(typingWrap);
+        wrapper.appendChild(content);
+        chat.appendChild(wrapper);
+        scrollChatToBottom();
+    }
+
+    function removeTyping() {
+        const typing = document.getElementById("typing-indicator");
+        if (typing) typing.remove();
+    }
+
+    function welcomeState() {
+        chat.innerHTML = `
+            <div class="welcome-box">
+                <h2>Hello! 👋</h2>
+                <p>
+                    I’m <b>Ovella</b>, your OvaCare wellness assistant. I can help you with
+                    PCOD, periods, stress, food choices, exercise suggestions,
+                    and website guidance in a simple and supportive way.
+                </p>
+            </div>
+        `;
+        scrollChatToBottom();
+    }
+
+    async function sendMessage() {
+        const userMessage = input.value.trim();
+        if (!userMessage) return;
+
+        addMessage("user", userMessage);
+        input.value = "";
+        autoResize();
+        addTyping();
+
+        try {
+            const response = await fetch("/api/chatbot", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ message: userMessage })
+            });
+
+            const data = await response.json();
+            removeTyping();
+
+            if (!response.ok) {
+                addMessage("bot", data.error || "Something went wrong.");
+                return;
+            }
+
+            let meta = `Intent: ${data.intent} | Confidence: ${(data.confidence * 100).toFixed(1)}%`;
+
+            if (data.source_title) {
+                meta += ` | Source: ${data.source_title}`;
+            }
+
+            if (data.user_context) {
+                if (data.user_context.risk && data.user_context.risk !== "Unknown") {
+                    meta += ` | PCOD: ${data.user_context.risk}`;
+                }
+                if (data.user_context.stress_level && data.user_context.stress_level !== "Unknown") {
+                    meta += ` | Stress: ${data.user_context.stress_level}`;
+                }
+            }
+
+            addMessage("bot", data.answer, meta);
+
+        } catch (error) {
+            removeTyping();
+            addMessage(
+                "bot",
+                "Server connection problem. Please check whether Flask is running and Ovella is ready."
+            );
+        }
+    }
+
+    function clearChat() {
+        welcomeState();
+    }
+
+    function quickAsk(text) {
+        input.value = text;
+        autoResize();
+        sendMessage();
+    }
+
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+
+    input.addEventListener("input", autoResize);
+
+    welcomeState();
+    autoResize();
+</script>
+
+<script>
+function toggleNotif() {
+    var box = document.getElementById("notifSection");
+    box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

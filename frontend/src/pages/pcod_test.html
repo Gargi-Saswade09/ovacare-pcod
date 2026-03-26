@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PCOD Risk Test | OvaCare</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   background: rgba(247, 216, 237, 0.88); /* adjust 0.8–0.9 */
+    z-index: -1;
+}
+
+        body{
+            min-height:100vh;
+            background-image:url("/static/images/pcod_test-bg.png");
+            background-repeat:no-repeat;
+            background-position:center -120px;
+            background-size:cover;
+            
+            
+        }
+
+        /* NAVBAR */
+        nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 80px;
+            background:white;
+            box-shadow:0 4px 10px rgba(0,0,0,0.05);
+            flex-wrap:wrap;
+            gap:12px;
+            position:relative;
+            z-index:1000;
+        }
+
+        .logo{
+            font-size:26px;
+            font-weight:700;
+            color:#ff5f73;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:24px;
+            align-items:center;
+            flex-wrap:wrap;
+            margin:0;
+            padding:0;
+        }
+
+        nav ul li{
+            list-style:none;
+        }
+
+        nav a{
+            text-decoration:none;
+            color:#333;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:#1e8f83;
+        }
+
+        .login-btn{
+            background:#1e8f83;
+            color:white !important;
+            padding:10px 20px;
+            border-radius:8px;
+            display:inline-block;
+        }
+
+        /* NAV DROPDOWN */
+        .nav-dropdown{
+            position:relative;
+        }
+
+        .dropdown-toggle{
+            cursor:pointer;
+            font-weight:500;
+            color:#333;
+            padding:8px 0;
+            transition:0.3s;
+        }
+
+        .dropdown-toggle:hover{
+            color:#1e8f83;
+        }
+
+        .dropdown-menu{
+            position:absolute;
+            top:42px;
+            left:0;
+            min-width:220px;
+            background:white;
+            border-radius:14px;
+            box-shadow:0 12px 28px rgba(0,0,0,0.12);
+            padding:10px;
+            border:1px solid #eee;
+            opacity:0;
+            visibility:hidden;
+            transform:translateY(10px);
+            transition:0.25s ease;
+            z-index:9999;
+        }
+
+        .nav-dropdown:hover .dropdown-menu{
+            opacity:1;
+            visibility:visible;
+            transform:translateY(0);
+        }
+
+        .dropdown-menu a{
+            display:block;
+            padding:12px 14px;
+            border-radius:10px;
+            color:#333;
+            font-weight:500;
+            white-space:nowrap;
+        }
+
+        .dropdown-menu a:hover{
+            background:#eef9f8;
+            color:#1e8f83;
+        }
+
+        /* PROFILE */
+        .profile-wrapper{
+            position:relative;
+        }
+
+        .profile-box{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            padding:10px 16px;
+            border-radius:40px;
+            background:#f2f2f2;
+            border:2px solid #ddd;
+            cursor:pointer;
+            transition:0.3s;
+            min-width:170px;
+            justify-content:center;
+        }
+
+        .profile-box:hover{
+            background:#eef9f8;
+            border-color:#1e8f83;
+        }
+
+        .avatar{
+            width:42px;
+            height:42px;
+            border-radius:50%;
+            background:#1e8f83;
+            color:white;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:600;
+            font-size:18px;
+            flex-shrink:0;
+        }
+
+        .profile-name{
+            font-weight:600;
+            color:#222;
+            white-space:nowrap;
+        }
+
+        .profile-dropdown{
+            position:absolute;
+            right:0;
+            top:62px;
+            width:280px;
+            background:white;
+            border-radius:20px;
+            box-shadow:0 12px 30px rgba(0,0,0,0.18);
+            display:none;
+            overflow:hidden;
+            z-index:9999;
+            border:1px solid #eee;
+        }
+
+        .profile-header{
+            text-align:center;
+            padding:22px 20px;
+            background:#f7f7f7;
+        }
+
+        .profile-header .email-text{
+            font-size:13px;
+            color:#666;
+            margin-bottom:14px;
+            word-break:break-word;
+        }
+
+        .big-avatar{
+            width:78px;
+            height:78px;
+            border-radius:50%;
+            background:#1e8f83;
+            color:white;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+            font-weight:600;
+            margin:0 auto 12px;
+        }
+
+        .profile-header h3{
+            font-size:18px;
+            margin-bottom:5px;
+            color:#222;
+        }
+
+        .profile-header p{
+            font-size:13px;
+            color:#666;
+        }
+
+        .profile-actions{
+            display:flex;
+            flex-direction:column;
+            padding:10px;
+        }
+
+        .profile-actions a{
+            padding:12px 14px;
+            border-radius:10px;
+            color:#333;
+            transition:0.3s;
+            display:block;
+        }
+
+        .profile-actions a:hover{
+            background:#eef9f8;
+            color:#1e8f83;
+        }
+
+        .hero{
+            text-align:center;
+            padding:50px 20px 20px;
+        }
+
+        .hero h1{
+            font-size:40px;
+            color:#2b7a78;
+            margin-bottom:10px;
+            font-family:'Playfair Display', serif;
+        }
+
+        .hero p{
+            font-size:18px;
+            color:#444;
+            max-width:700px;
+            margin:auto;
+            line-height:1.6;
+        }
+
+        .main-wrapper{
+            width:100%;
+            display:flex;
+            justify-content:center;
+            padding:25px 15px 50px;
+        }
+
+        .form-card{
+            width:900px;
+            max-width:100%;
+            background:white;
+            border-radius:20px;
+            box-shadow:0 12px 35px rgba(0,0,0,0.12);
+            overflow:hidden;
+            animation:fadeIn 0.8s ease;
+        }
+
+        .card-header{
+            background:linear-gradient(120deg,#3aafa9,#2b7a78);
+            color:white;
+            padding:28px;
+            text-align:center;
+        }
+
+        .card-header h2{
+            font-size:28px;
+            margin-bottom:8px;
+        }
+
+        .card-header p{
+            font-size:15px;
+            opacity:0.95;
+        }
+
+        form{
+            padding:30px;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(2, 1fr);
+            gap:22px;
+        }
+
+        .input-group{
+            display:flex;
+            flex-direction:column;
+        }
+
+        .input-group.full{
+            grid-column:1 / -1;
+        }
+
+        label{
+            font-weight:bold;
+            margin-bottom:8px;
+            color:#2b2b2b;
+        }
+
+        input, select{
+            width:100%;
+            padding:12px 14px;
+            border:1px solid #cfd8dc;
+            border-radius:10px;
+            font-size:15px;
+            outline:none;
+            transition:0.3s;
+            background:#fcfcfc;
+        }
+
+        input:focus, select:focus{
+            border-color:#3aafa9;
+            box-shadow:0 0 0 3px rgba(58,175,169,0.15);
+        }
+
+        .hint{
+            margin-top:6px;
+            font-size:13px;
+            color:#666;
+        }
+
+        .info-box{
+            margin:25px 0 10px;
+            padding:16px 18px;
+            border-radius:12px;
+            background:#eef9f8;
+            border-left:5px solid #3aafa9;
+            color:#234;
+            line-height:1.6;
+            font-size:14px;
+        }
+
+        .stress-box{
+            margin:25px 0 5px;
+            padding:16px 18px;
+            border-radius:12px;
+            background:#fff6e8;
+            border-left:5px solid #f0ad4e;
+            color:#333;
+            line-height:1.6;
+            font-size:14px;
+        }
+
+        .stress-box strong{
+            color:#2b7a78;
+        }
+
+        .btn-box{
+            margin-top:28px;
+            text-align:center;
+        }
+
+        button{
+            background:linear-gradient(120deg,#3aafa9,#2b7a78);
+            color:white;
+            border:none;
+            padding:14px 30px;
+            border-radius:12px;
+            font-size:17px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+            min-width:240px;
+        }
+
+        button:hover{
+            transform:translateY(-2px) scale(1.02);
+            box-shadow:0 10px 20px rgba(43,122,120,0.25);
+        }
+
+        .flash-box{
+            width:900px;
+            max-width:calc(100% - 30px);
+            margin:20px auto 0;
+            background:#ffeaea;
+            color:#b30000;
+            padding:14px 18px;
+            border-radius:10px;
+            font-weight:bold;
+            box-shadow:0 6px 16px rgba(0,0,0,0.08);
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(20px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        @media(max-width:900px){
+            nav{
+                justify-content:center;
+                padding:20px;
+            }
+
+            .logo{
+                width:100%;
+                text-align:center;
+                margin-bottom:8px;
+            }
+
+            nav ul{
+                justify-content:center;
+            }
+
+            .dropdown-menu{
+                left:50%;
+                transform:translateX(-50%) translateY(10px);
+            }
+
+            .nav-dropdown:hover .dropdown-menu{
+                transform:translateX(-50%) translateY(0);
+            }
+
+            .profile-dropdown{
+                right:auto;
+                left:50%;
+                transform:translateX(-50%);
+                width:260px;
+            }
+        }
+
+        @media(max-width:768px){
+            .hero h1{
+                font-size:30px;
+            }
+
+            .hero p{
+                font-size:16px;
+            }
+
+            .grid{
+                grid-template-columns:1fr;
+            }
+
+            form{
+                padding:22px;
+            }
+
+            .card-header{
+                padding:22px;
+            }
+
+            button{
+                width:100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">💖 OvaCare</div>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+
+        {% if session.get("user_id") %}
+
+        <li class="nav-dropdown">
+            <div class="dropdown-toggle">Test</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('stress_quiz') }}"><i class="fa-solid fa-brain"></i> Stress Quiz</a>
+                <a href="{{ url_for('pcod_test') }}"><i class="fa-solid fa-heart-pulse"></i> PCOD Test</a>
+                <a href="{{ url_for('bmi') }}"><i class="fa-solid fa-calculator"></i> BMI Calculator</a>
+            </div>
+        </li>
+
+        <li class="nav-dropdown">
+            <div class="dropdown-toggle">Plan</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('diet') }}"><i class="fa-solid fa-utensils"></i> Diet Plan</a>
+                <a href="{{ url_for('exercise') }}"><i class="fa-solid fa-dumbbell"></i> Exercise Plan</a>
+            </div>
+        </li>
+
+          <li class="nav-dropdown">
+            <div class="dropdown-toggle">Results</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('latest_stress_result') }}"><i class="fa-solid fa-file-waveform"></i> Stress Result</a>
+                <a href="{{ url_for('latest_pcod_result') }}"><i class="fa-solid fa-notes-medical"></i> PCOD Result</a>
+            </div>
+        </li>
+
+        <li><a href="{{ url_for('chatbot') }}">Chatbot</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+        <li class="profile-wrapper">
+            <div class="profile-box" onclick="toggleProfileMenu()">
+                <div class="avatar">
+                    {{ (session.get('user_name') or 'U')[0] | upper }}
+                </div>
+                <span class="profile-name">{{ session.get('user_name') }}</span>
+            </div>
+
+            <div class="profile-dropdown" id="profileMenu">
+                <div class="profile-header">
+                    <div class="email-text">{{ session.get('user_email', 'your@email.com') }}</div>
+                    <div class="big-avatar">
+                        {{ (session.get('user_name') or 'U')[0] | upper }}
+                    </div>
+                    <h3>{{ session.get('user_name') }}</h3>
+                    <p>Your OvaCare account</p>
+                </div>
+
+                <div class="profile-actions">
+
+    <!-- 🔔 NOTIFICATIONS -->
+    <div onclick="toggleNotif()" style="cursor:pointer; display:flex; justify-content:space-between; padding:10px;">
+        
+        <span><i class="fa-solid fa-bell"></i> Notifications</span>
+
+        {% if unread_count and unread_count > 0 %}
+        <span style="
+            background:red;
+            color:white;
+            font-size:10px;
+            padding:3px 7px;
+            border-radius:50%;
+        ">
+            {{ unread_count }}
+        </span>
+        {% endif %}
+
+    </div>
+
+    <div id="notifSection" style="display:none; padding:10px;">
+
+        {% if notifications %}
+            {% for n in notifications[:5] %}
+                <div style="background:#fff3f5; padding:10px; margin-bottom:8px; border-radius:10px;">
+                    <strong>{{ n[1] }}</strong>
+                    <p style="font-size:12px; margin:0;">{{ n[2] }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No notifications</p>
+        {% endif %}
+
+        <div style="text-align:right;">
+            <a href="{{ url_for('mark_notifications_read_route') }}">Mark all as read</a>
+        </div>
+
+    </div>
+
+    <!-- 👤 MENU -->
+    <a href="{{ url_for('profile') }}">
+        <i class="fa-solid fa-user"></i> My Profile
+    </a>
+
+    <a href="{{ url_for('dashboard') }}">
+        <i class="fa-solid fa-chart-line"></i> Dashboard
+    </a>
+
+    <a href="{{ url_for('logout') }}">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+
+</div>
+            </div>
+        </li>
+
+        {% else %}
+
+        <li class="nav-dropdown">
+            <div class="dropdown-toggle">Test</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('stress_quiz') }}"><i class="fa-solid fa-brain"></i> Stress Quiz</a>
+                <a href="{{ url_for('pcod_test') }}"><i class="fa-solid fa-heart-pulse"></i> PCOD Test</a>
+                <a href="{{ url_for('login') }}"><i class="fa-solid fa-calculator"></i> BMI Calculator</a>
+            </div>
+        </li>
+
+        <li class="nav-dropdown">
+            <div class="dropdown-toggle">Plan</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('diet') }}"><i class="fa-solid fa-utensils"></i> Diet Plan</a>
+                <a href="{{ url_for('exercise') }}"><i class="fa-solid fa-dumbbell"></i> Exercise Plan</a>
+            </div>
+        </li>
+
+
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="{{ url_for('chatbot') }}">Chatbot</a></li>
+        <li><a href="{{ url_for('login') }}" class="login-btn">Login</a></li>
+        <li><a href="{{ url_for('register') }}" class="login-btn">Register</a></li>
+
+        {% endif %}
+    </ul>
+</nav>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-box">
+            {% for message in messages %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<section class="hero">
+    <h1>PCOD Early Risk Assessment</h1>
+    <p>
+        Enter your symptom and lifestyle details below. Your latest stress result is also shown here
+        as a supportive factor for a more personalized wellness assessment.
+    </p>
+</section>
+
+<div class="main-wrapper">
+    <div class="form-card">
+        <div class="card-header">
+            <h2>Fill Your Details</h2>
+            <p>Please provide accurate information for a better prediction.</p>
+        </div>
+
+        <form action="{{ url_for('predict_pcod') }}" method="POST">
+
+            <div class="stress-box">
+                <strong>Latest Stress Result:</strong>
+                {% if latest_stress %}
+                    {{ latest_stress[2] }}
+                {% else %}
+                    Not available yet
+                {% endif %}
+                <br>
+                <strong>Note:</strong> Stress is used as a supportive factor in this project. It does not by itself guarantee medical accuracy.
+            </div>
+
+            <div class="grid">
+
+                <div class="input-group">
+                    <label for="age">Age</label>
+                    <input
+                        type="number"
+                        id="age"
+                        name="age"
+                        min="10"
+                        max="60"
+                        placeholder="Enter your age"
+                        value="{{ profile[2] if profile else '' }}"
+                        required
+                    >
+                    <div class="hint">Example: 22</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="bmi">BMI</label>
+                    <input
+                        type="number"
+                        step="0.01"
+                        id="bmi"
+                        name="bmi"
+                        min="10"
+                        max="60"
+                        placeholder="Enter your BMI"
+                        value="{{ latest_bmi[3] if latest_bmi else '' }}"
+                        required
+                    >
+                    <div class="hint">Example: 24.6</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="cycle_regular">Menstrual Cycle Regularity</label>
+                    <select id="cycle_regular" name="cycle_regular" required>
+                        <option value="">Select</option>
+                        <option value="1" {% if profile and profile[11] == 1 %}selected{% endif %}>Regular</option>
+                        <option value="0" {% if profile and profile[11] == 0 %}selected{% endif %}>Irregular</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="cycle_length_days">Cycle Length (days)</label>
+                    <input
+                        type="number"
+                        id="cycle_length_days"
+                        name="cycle_length_days"
+                        min="1"
+                        max="60"
+                        placeholder="Enter cycle length"
+                        value="{{ profile[8] if profile else '' }}"
+                        required
+                    >
+                    <div class="hint">Example: 28</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="weight_gain">Recent Weight Gain</label>
+                    <select id="weight_gain" name="weight_gain" required>
+                        <option value="">Select</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="hair_growth">Excess Hair Growth</label>
+                    <select id="hair_growth" name="hair_growth" required>
+                        <option value="">Select</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="skin_darkening">Skin Darkening</label>
+                    <select id="skin_darkening" name="skin_darkening" required>
+                        <option value="">Select</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="hair_loss">Hair Loss</label>
+                    <select id="hair_loss" name="hair_loss" required>
+                        <option value="">Select</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="acne">Frequent Acne</label>
+                    <select id="acne" name="acne" required>
+                        <option value="">Select</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="fast_food">Fast Food Consumption</label>
+                    <select id="fast_food" name="fast_food" required>
+                        <option value="">Select</option>
+                        <option value="1">Often</option>
+                        <option value="0">Rarely</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="exercise">Regular Exercise</label>
+                    <select id="exercise" name="exercise" required>
+                        <option value="">Select</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="stress_level">Stress Level</label>
+                    <input
+                        type="text"
+                        id="stress_level"
+                        name="stress_level"
+                        value="{{ latest_stress[2] if latest_stress else 'Low' }}"
+                        readonly
+                    >
+                    <div class="hint">Taken from your latest stress quiz result</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                This prediction is based on your symptoms and lifestyle indicators.
+                It is useful for early awareness, but it does not replace medical diagnosis.
+            </div>
+
+            <div class="btn-box">
+                <button type="submit">Predict PCOD Risk</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleProfileMenu(){
+        let menu = document.getElementById("profileMenu");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    document.addEventListener("click", function(e){
+        let wrapper = document.querySelector(".profile-wrapper");
+        let menu = document.getElementById("profileMenu");
+
+        if(wrapper && !wrapper.contains(e.target) && menu){
+            menu.style.display = "none";
+        }
+    });
+</script>
+
+<script>
+function toggleNotif() {
+    var box = document.getElementById("notifSection");
+    box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

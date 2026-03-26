@@ -1,0 +1,118 @@
+Timestamp,Age,  Height (cm)  ,  Weight (kg)  ,  Do you have family history of PCOD?  ,  Do you experience irregular periods?  , What is the average length of your menstrual cycle?  ,  Do you experience acne frequently?  ,  Have you experienced sudden weight gain?  ,  Do you experience hair thinning or hair loss?  ,Do you experience skin darkening?,Do you have excessive hair growth (face/chin)? ,  How many hours do you sleep daily?  ,  How often do you exercise?  ,  How would you describe your diet?  ,pcod_risk,stress_level
+16/03/2026 21:13:18,21,158,52,No,No,28 days,No,No,Yes,No,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 21:14:15,20,172,70,Not Sure,No,30 days,No,Yes,No,Yes,No,5–7 hours,Occasionally,Mostly processed/junk food,0,Medium
+16/03/2026 21:21:27,21,158,55,No,No,30 days,No,No,No,No,No,7–9 hours,Occasionally,Moderate,0,Low
+16/03/2026 21:21:27,18,173,50,Not Sure,No,28 days,Yes,Yes,Yes,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 21:23:01,21,168,68,Not Sure,No,8 days,No,Yes,Yes,No,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 21:25:44,20,157,45,No,Yes,10 days,Yes,No,Yes,No,Yes,7–9 hours,Never,Moderate,0,Medium
+16/03/2026 21:26:51,21,164,37,No,No,25 days,No,No,Yes,No,No,7–9 hours,Never,Moderate,0,Medium
+16/03/2026 21:27:15,20,155,54,No,Yes,80 days,Yes,Yes,No,Yes,Yes,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 21:27:44,21,160,56,No,No,27 days,No,No,No,No,No,5–7 hours,Occasionally,Healthy balanced diet,0,Low
+16/03/2026 21:29:49,20,155,42,No,No,23 days,Yes,No,Yes,No,No,7–9 hours,Never,Moderate,0,Medium
+16/03/2026 21:30:28,16,162,48,No,Yes,20 days,Yes,No,Yes,No,No,7–9 hours,Never,Moderate,0,Medium
+16/03/2026 21:31:16,42,158,60,No,No,23 days,No,No,Yes,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 21:31:40,18,121,63,No,No,25 days ,No,No,No,Yes,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 21:32:40,20,167,70,No,No,28 days,Yes,Yes,Yes,No,No,Less than 5 hours,Occasionally,Moderate,0,Medium
+16/03/2026 21:33:36,22,164,37,Yes,No,30 days,No,No,No,No,No,5–7 hours,Never,Healthy balanced diet,0,Low
+16/03/2026 21:35:30,19,160,60,Not Sure,No,32 days,Yes,Yes,Yes,Yes,Yes,Less than 5 hours,Never,Moderate,0,High
+16/03/2026 21:35:43,20,150,54,No,No,25 days,Yes,No,No,No,No,Less than 5 hours,Occasionally,Moderate,0,Medium
+16/03/2026 21:38:02,99,169,69,Not Sure,No,29 days,No,No,No,No,No,Less than 5 hours,Never,Moderate,0,Medium
+16/03/2026 21:39:57,20,153,47,No,No,30 days,No,No,Yes,Yes,No,5–7 hours,Daily,Moderate,0,Low
+16/03/2026 21:40:19,28,161,70,No,No,22 days,No,No,No,No,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 21:42:11,21,160,55,No,No,30 days,No,No,Yes,No,No,7–9 hours,Occasionally,Moderate,0,Low
+16/03/2026 21:42:29,20,173,50,No,No,20 days,No,No,No,No,No,Less than 5 hours,Daily,Moderate,0,Low
+16/03/2026 21:44:06,21,154,88,No,No,25 days,Yes,No,No,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 21:44:26,18,161,50,No,Yes,10 days,No,No,No,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 21:45:03,43,165,73,No,Yes,15 days,No,Yes,Yes,Yes,No,5–7 hours,Occasionally,Healthy balanced diet,0,Medium
+16/03/2026 21:45:57,20,140,49,No,Yes,45days,Yes,Yes,Yes,No,No,7–9 hours,Occasionally,Moderate,0,Medium
+16/03/2026 21:46:24,20,162,53,No,Yes,7 days,No,No,Yes,Yes,Yes,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 21:46:57,19,161,63,No,No,35  days,No,No,Yes,Yes,No,5–7 hours,Never,Mostly processed/junk food,0,Medium
+16/03/2026 21:47:23,29,160,63,No,No,28 days,No,No,No,No,No,7–9 hours,Daily,Healthy balanced diet,0,Low
+16/03/2026 21:49:52,19,176,60,No,No,30 days,No,No,No,No,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 21:54:26,20,152,54,Yes,Yes,60 days,Yes,Yes,Yes,Yes,No,5–7 hours,Daily,Moderate,0,Medium
+16/03/2026 21:57:54,20,170,38,No,No,34 days,Yes,No,Yes,No,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 21:59:23,17,157,62,No,No,23 days,No,Yes,Yes,No,No,7–9 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:02:24,20,169,55,No,No,28days,No,No,No,No,No,7–9 hours,Occasionally,Moderate,0,Low
+16/03/2026 22:02:42,20,158,70,No,Yes,12 days,No,Yes,Yes,Yes,No,7–9 hours,Daily,Moderate,0,Medium
+16/03/2026 22:06:28,21,152,55,No,No,30 days,No,No,No,No,No,7–9 hours,Occasionally,Moderate,0,Low
+16/03/2026 22:08:23,18,160,46,No,No,25 days,Yes,No,No,No,No,5–7 hours,Occasionally,Mostly processed/junk food,0,Medium
+16/03/2026 22:09:18,21,170,70,No,No,28 days,No,Yes,No,Yes,Yes,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:11:26,23,158,60,No,Yes,55 days,No,No,No,No,No,7–9 hours,Occasionally,Moderate,0,Low
+16/03/2026 22:12:40,22,161,75,No,Yes,15 days,No,Yes,Yes,No,Yes,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:13:03,18,150,63,Yes,Yes,60  days,No,No,Yes,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:13:03,51,159,82,No,No,21 days,Yes,Yes,Yes,Yes,No,5–7 hours,Daily,Moderate,0,Medium
+16/03/2026 22:13:36,18,166,60,No,Yes,36 days,Yes,No,Yes,Yes,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:17:02,21,149,53,No,Yes,50 days,Yes,Yes,Yes,Yes,Yes,5–7 hours,Never,Moderate,0,High
+16/03/2026 22:17:12,18,160,40,No,Yes,70 days,No,No,Yes,No,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 22:19:37,18,152,48,No,No,26 days ,No,No,No,No,No,5–7 hours,Occasionally,Moderate,0,Low
+16/03/2026 22:20:29,22,154,52,No,No,23 days,Yes,No,Yes,No,No,Less than 5 hours,Never,Moderate,0,Medium
+16/03/2026 22:21:05,43,153,62,No,No,25 days,No,No,Yes,No,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 22:21:26,21,165,65,Yes,No,30 days,No,Yes,Yes,Yes,Yes,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:21:32,19,167,43,Yes,Yes,65 days,No,No,Yes,No,Yes,5–7 hours,Daily,Moderate,0,Medium
+16/03/2026 22:23:06,23,158,57,No,No,28 days,Yes,No,Yes,No,No,7–9 hours,Never,Moderate,0,Medium
+16/03/2026 22:23:21,20,165,57,No,No,25 days,Yes,No,Yes,Yes,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 22:23:53,20,165,58,No,No,30 days,No,No,Yes,Yes,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:24:11,21,155,60,Not Sure,Yes,52 days,No,Yes,No,No,No,Less than 5 hours,Never,Moderate,0,Medium
+16/03/2026 22:24:46,21,167,78,No,No,25 days,No,Yes,Yes,Yes,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 22:26:36,21,160,70,No,Yes,33 days,No,Yes,Yes,No,Yes,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:29:19,21,167,60,No,No,30 days,Yes,No,No,No,No,7–9 hours,Daily,Healthy balanced diet,0,Low
+16/03/2026 22:33:00,20,178,80,No,No,20 days ,No,Yes,Yes,Yes,No,Less than 5 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:34:05,18,160,56,Not Sure,Yes,60 days,Yes,Yes,Yes,Yes,No,5–7 hours,Never,Moderate,0,High
+16/03/2026 22:36:24,21,165,41,No,Yes,35  days,Yes,No,Yes,Yes,Yes,7–9 hours,Daily,Moderate,0,Medium
+16/03/2026 22:38:28,20,165,75,No,No,25 days,Yes,Yes,Yes,Yes,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:41:51,21,154,46,Yes,No,28 days,No,No,Yes,Yes,No,Less than 5 hours,Occasionally,Mostly processed/junk food,0,Medium
+16/03/2026 22:43:06,25,152,45,No,Yes,40 days,No,No,No,No,No,7–9 hours,Occasionally,Moderate,0,Low
+16/03/2026 22:45:34,23,160,55,Not Sure,No,24 days,No,Yes,Yes,No,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 22:47:25,36,165,72,No,No,35 days,No,No,Yes,No,Yes,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 22:50:19,21,155,36,No,Yes,62 days,No,No,Yes,Yes,No,5–7 hours,Daily,Mostly processed/junk food,0,Medium
+16/03/2026 22:50:23,21,162,80,Not Sure,Yes,40 days,Yes,Yes,Yes,No,No,5–7 hours,Daily,Moderate,0,Medium
+16/03/2026 22:52:48,17,158,41,No,No,36 days,No,No,Yes,No,No,Less than 5 hours,Never,Moderate,0,Medium
+16/03/2026 22:59:15,20,155,42,No,No,28days,Yes,No,No,No,No,7–9 hours,Daily,Moderate,0,Low
+16/03/2026 23:11:12,21,154,63,Yes,Yes,60 days ,Yes,Yes,No,Yes,Yes,7–9 hours,Occasionally,Moderate,0,Medium
+16/03/2026 23:12:52,20,152,57,No,No,25 days ,Yes,Yes,Yes,Yes,Yes,5–7 hours,Daily,Moderate,0,Medium
+16/03/2026 23:14:54,20,164,51,No,Yes,30 days,No,No,Yes,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 23:15:11,24,153,67,Not Sure,Yes,90 days,No,Yes,No,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 23:16:52,46,152,63,Not Sure,Yes,40 days,No,No,No,No,No,5–7 hours,Daily,Moderate,0,Low
+16/03/2026 23:18:55,20,160,63,No,Yes,75 days,Yes,Yes,Yes,No,No,5–7 hours,Never,Moderate,0,High
+16/03/2026 23:20:36,16,162,46,No,No,25 days ,No,No,Yes,No,Yes,7–9 hours,Occasionally,Moderate,0,Low
+16/03/2026 23:21:44,18,162,40,No,No,28 days,No,No,Yes,Yes,Yes,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 23:22:00,23,167,42,Not Sure,Yes,60 days,Yes,No,Yes,No,No,7–9 hours,Never,Moderate,0,Medium
+16/03/2026 23:23:29,19,157,52,No,No,28 days,Yes,No,Yes,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 23:24:32,20,156,54,No,No,30 days,Yes,No,Yes,Yes,No,5–7 hours,Occasionally,Moderate,0,Medium
+16/03/2026 23:28:57,15,157,49,No,No,40 days,No,No,No,No,Yes,More than 9 hours,Never,Mostly processed/junk food,0,Medium
+16/03/2026 23:33:41,20,169,64,No,No,28 days,Yes,Yes,No,No,No,5–7 hours,Never,Moderate,0,Medium
+16/03/2026 23:37:22,13,155,43,No,No,35 days,No,No,No,No,No,7–9 hours,Never,Moderate,0,Low
+16/03/2026 23:38:03,16,154,45,No,No,27 days,No,No,Yes,No,No,More than 9 hours,Occasionally,Moderate,0,Medium
+16/03/2026 23:47:14,19,160,65,No,No,30 days,No,No,No,No,No,5–7 hours,Occasionally,Moderate,0,Low
+16/03/2026 23:58:54,21,162,58,No,Yes,52 days,Yes,Yes,Yes,Yes,Yes,5–7 hours,Never,Moderate,0,High
+17/03/2026 00:02:56,17,125,46,No,Yes,35 days ,No,No,Yes,No,No,5–7 hours,Never,Moderate,0,Medium
+17/03/2026 00:11:50,22,165,70,Not Sure,Yes,60 days,Yes,Yes,Yes,Yes,No,5–7 hours,Occasionally,Moderate,0,Medium
+17/03/2026 00:15:25,19,164,57,No,Yes,20 days,No,Yes,Yes,Yes,No,5–7 hours,Occasionally,Mostly processed/junk food,0,Medium
+17/03/2026 00:23:58,18,160,65,No,Yes,10 days,No,Yes,Yes,Yes,Yes,5–7 hours,Daily,Moderate,0,Medium
+17/03/2026 00:29:36,23,152,47,No,Yes,50 days,Yes,No,Yes,No,Yes,7–9 hours,Occasionally,Moderate,0,Medium
+17/03/2026 00:43:19,19,152,65,No,Yes,12 days,Yes,Yes,No,No,Yes,Less than 5 hours,Occasionally,Moderate,0,Medium
+17/03/2026 00:50:37,21,153,45,No,No,26 days,No,No,Yes,Yes,No,5–7 hours,Never,Moderate,0,Medium
+17/03/2026 01:22:29,22,162,45,No,Yes,34 days,Yes,No,Yes,Yes,Yes,5–7 hours,Occasionally,Moderate,0,Medium
+17/03/2026 07:32:15,39,160,75,No,No,24 days,No,No,No,No,No,5–7 hours,Occasionally,Moderate,0,Low
+17/03/2026 08:27:06,31,171,73,No,No,30 days,No,No,No,No,No,7–9 hours,Occasionally,Moderate,0,Low
+17/03/2026 08:49:17,18,150,42,No,No,29 days,Yes,No,Yes,Yes,No,7–9 hours,Occasionally,Moderate,0,Medium
+17/03/2026 09:33:43,18,176,52,No,No,25 days,No,No,No,No,No,7–9 hours,Occasionally,Moderate,0,Low
+17/03/2026 09:55:04,20,164,56,No,No,25 days,Yes,No,Yes,No,No,7–9 hours,Occasionally,Moderate,0,Medium
+17/03/2026 10:01:40,20,150,45,No,No,29 days,Yes,No,No,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+17/03/2026 10:12:37,18,157,46,No,Yes,60 days,No,No,Yes,Yes,No,5–7 hours,Never,Moderate,0,Medium
+17/03/2026 10:26:26,41,150,50,Yes,Yes,90 days,Yes,Yes,Yes,Yes,Yes,5–7 hours,Never,Moderate,0,High
+17/03/2026 11:20:50,23,147,73,No,No,25 days,Yes,Yes,Yes,Yes,Yes,5–7 hours,Never,Moderate,0,Medium
+17/03/2026 11:29:02,21,153,40,No,No,25 days,Yes,No,No,Yes,No,5–7 hours,Occasionally,Moderate,0,Medium
+17/03/2026 12:15:54,19,170,48,No,No,30 days,Yes,No,No,Yes,No,5–7 hours,Occasionally,Moderate,0,Medium
+17/03/2026 13:22:23,21,155,46,No,No,29 days,No,No,Yes,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+17/03/2026 14:58:42,20,176,55,No,No,30 days,Yes,No,Yes,Yes,No,Less than 5 hours,Occasionally,Moderate,0,Medium
+17/03/2026 17:13:15,42,152,60,No,No,40 days,No,No,Yes,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+17/03/2026 17:25:18,33,157,99,Yes,Yes,45 days,No,Yes,Yes,Yes,Yes,5–7 hours,Never,Moderate,0,Medium
+17/03/2026 18:03:54,27,145,66,No,No,25 days,No,No,Yes,No,No,5–7 hours,Occasionally,Moderate,0,Medium
+17/03/2026 20:31:26,15,155,70,No,No,30 days,No,No,Yes,Yes,No,More than 9 hours,Never,Mostly processed/junk food,0,Medium
+17/03/2026 21:14:49,24,152,52,No,No,28 days,No,No,No,No,No,7–9 hours,Occasionally,Healthy balanced diet,0,Low
+17/03/2026 21:17:35,21,153,38,No,Yes,70 days,Yes,No,No,No,Yes,5–7 hours,Never,Moderate,0,Medium
+17/03/2026 21:20:56,40,153,46,No,Yes,30 days,No,No,Yes,No,Yes,7–9 hours,Never,Moderate,0,Medium
+17/03/2026 22:00:56,16,163,46,No,Yes,28 days,No,No,Yes,No,No,More than 9 hours,Never,Moderate,0,Medium
+17/03/2026 23:02:49,37,171,53,Yes,No,25 days,No,No,Yes,No,Yes,5–7 hours,Occasionally,Healthy balanced diet,0,Low
+18/03/2026 19:14:44,35,150,72,No,No,28 days,No,No,No,No,No,5–7 hours,Never,Moderate,0,Medium

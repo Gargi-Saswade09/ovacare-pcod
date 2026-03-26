@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OvaCare Login</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            background:#f7f7f7;
+        }
+
+        .left{
+            width:50%;
+            background:#f29c9c;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            text-align:center;
+            padding:60px;
+        }
+
+        .left h1{
+            font-size:44px;
+            margin-bottom:15px;
+        }
+
+        .left p{
+            font-size:17px;
+            max-width:420px;
+            line-height:1.7;
+        }
+
+        .left img{
+            width:330px;
+            margin-top:40px;
+            max-width:100%;
+        }
+
+        .right{
+            width:50%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#f7f7f7;
+            padding:20px;
+        }
+
+        .form-box{
+            background:#f29c9c;
+            padding:55px;
+            width:420px;
+            max-width:100%;
+            border-radius:20px;
+            box-shadow:0 20px 40px rgba(0,0,0,0.25);
+            text-align:center;
+            animation:fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        .form-box h2{
+            margin-bottom:10px;
+            font-size:26px;
+            color:#fff;
+        }
+
+        .sub-text{
+            color:#fff;
+            font-size:14px;
+            margin-bottom:22px;
+            line-height:1.6;
+        }
+
+        .input-group{
+            position:relative;
+            margin:12px 0;
+        }
+
+        .input-group i{
+            position:absolute;
+            left:12px;
+            top:50%;
+            transform:translateY(-50%);
+            color:#888;
+        }
+
+        input{
+            width:100%;
+            padding:14px 14px 14px 38px;
+            border-radius:8px;
+            border:none;
+            font-size:15px;
+            outline:none;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            background:#ff5f73;
+            color:white;
+            font-size:17px;
+            cursor:pointer;
+            margin-top:15px;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#ff4757;
+            transform:scale(1.03);
+        }
+
+        a{
+            text-decoration:none;
+            color:#c8003d;
+            font-weight:500;
+        }
+
+        .links{
+            margin-top:18px;
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+        }
+
+        .small-note{
+            margin-top:16px;
+            font-size:14px;
+            color:#fff;
+            line-height:1.6;
+        }
+
+        .back-home{
+            display:inline-block;
+            margin-top:4px;
+        }
+
+        .flash-message{
+            background:#fff3f4;
+            color:#b00020;
+            border:1px solid #f3b3bb;
+            padding:10px 12px;
+            border-radius:8px;
+            margin-bottom:15px;
+            font-size:14px;
+        }
+
+        @media(max-width:900px){
+            body{
+                flex-direction:column;
+            }
+
+            .left, .right{
+                width:100%;
+            }
+
+            .left{
+                padding:40px 20px;
+            }
+
+            .left h1{
+                font-size:34px;
+            }
+
+            .left img{
+                width:240px;
+                margin-top:25px;
+            }
+
+            .right{
+                padding:25px 15px 35px;
+            }
+
+            .form-box{
+                padding:35px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="left">
+        <h1>Welcome to OvaCare</h1>
+        <p>
+            Login to monitor your PCOD risk, track stress levels, view recommendations,
+            and manage your wellness journey from your personal account.
+        </p>
+        <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Login Illustration">
+    </div>
+
+    <div class="right">
+        <div class="form-box">
+            <h2>Login</h2>
+            <p class="sub-text">
+                Access your account to continue your weekly stress quiz, BMI tracking,
+                PCOD assessment, and dashboard history.
+            </p>
+
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                {% for message in messages %}
+                  <p class="flash-message">{{ message }}</p>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('login') }}" method="post">
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <div class="links">
+                <a href="{{ url_for('forgot_password') }}">Forgot Password?</a>
+                <a href="{{ url_for('register') }}">Register Here</a>
+                <a href="{{ url_for('home') }}" class="back-home">Back to Home</a>
+            </div>
+
+            <p class="small-note">
+                New users can register using OTP verification for secure account creation.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

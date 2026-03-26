@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 30px;
+            background: #f5f7fa;
+            font-size: 18px;
+        }
+
+        h1 {
+            color: #2b7a78;
+            font-size: 32px;
+        }
+
+        h2 {
+            font-size: 26px;
+        }
+
+        .card {
+            background: white;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+            font-size: 18px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .graph-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .graph-container img {
+            width: 85%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<h1>OvaCare Health Report</h1>
+
+<p><b>Name:</b> {{ name }}</p>
+<p><b>Age:</b> {{ age }}</p>
+<p><b>Phone:</b> {{ phone }}</p>
+<p><b>Date:</b> {{ date }}</p>
+
+<div class="card">
+    <div class="title">PCOD Result</div>
+    <p>{{ pcod }}</p>
+    <p><b>Probability:</b> {{ pcod_prob }}%</p>
+</div>
+
+<div class="card">
+    <div class="title">Stress Result</div>
+    <p>{{ stress }}</p>
+    <p><b>Score:</b> {{ stress_score }}</p>
+</div>
+
+<div class="card">
+    <div class="title">Diet Plan</div>
+    <ul>
+        {% for d in diet %}
+        <li>{{ d }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <div class="title">Exercise Plan</div>
+    <ul>
+        {% for e in exercise %}
+        <li>{{ e }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- PAGE BREAK -->
+<div class="page-break"></div>
+
+<!-- PAGE 2 -->
+<div class="graph-container">
+    <h2>Health Graph</h2>
+    <img src="file:///{{ graph_url }}">
+</div>
+
+</body>
+</html>

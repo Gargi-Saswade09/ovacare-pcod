@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | OvaCare</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(247, 220, 238, 0.88); /* adjust 0.8–0.9 */
+}
+
+        body{
+            min-height:100vh;
+            background-image:url("/static/images/pcod_test-bg.png");
+            background-repeat:no-repeat;
+            background-position:center -120px;
+            background-size: cover;
+            
+            
+        }
+
+        /* NAVBAR */
+        nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 80px;
+            background:white;
+            box-shadow:0 4px 10px rgba(0,0,0,0.05);
+            flex-wrap:wrap;
+            gap:12px;
+            position:relative;
+            z-index:1000;
+        }
+
+        .logo{
+            font-size:26px;
+            font-weight:700;
+            color:#ff5f73;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:24px;
+            align-items:center;
+            flex-wrap:wrap;
+            margin:0;
+            padding:0;
+        }
+
+        nav ul li{
+            list-style:none;
+        }
+
+        nav a{
+            text-decoration:none;
+            color:#333;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:#1e8f83;
+        }
+
+        .login-btn{
+            background:#1e8f83;
+            color:white !important;
+            padding:10px 20px;
+            border-radius:8px;
+            display:inline-block;
+        }
+
+        /* NAV DROPDOWN */
+        .nav-dropdown{
+            position:relative;
+        }
+
+        .dropdown-toggle{
+            cursor:pointer;
+            font-weight:500;
+            color:#333;
+            padding:8px 0;
+            transition:0.3s;
+        }
+
+        .dropdown-toggle:hover{
+            color:#1e8f83;
+        }
+
+        .dropdown-menu{
+            position:absolute;
+            top:42px;
+            left:0;
+            min-width:220px;
+            background:white;
+            border-radius:14px;
+            box-shadow:0 12px 28px rgba(0,0,0,0.12);
+            padding:10px;
+            border:1px solid #eee;
+            opacity:0;
+            visibility:hidden;
+            transform:translateY(10px);
+            transition:0.25s ease;
+            z-index:9999;
+        }
+
+        .nav-dropdown:hover .dropdown-menu{
+            opacity:1;
+            visibility:visible;
+            transform:translateY(0);
+        }
+
+        .dropdown-menu a{
+            display:block;
+            padding:12px 14px;
+            border-radius:10px;
+            color:#333;
+            font-weight:500;
+            white-space:nowrap;
+        }
+
+        .dropdown-menu a:hover{
+            background:#eef9f8;
+            color:#1e8f83;
+        }
+
+        /* PROFILE NAV */
+        .profile-wrapper{
+            position:relative;
+        }
+
+        .profile-box{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            padding:10px 16px;
+            border-radius:40px;
+            background:#f2f2f2;
+            border:2px solid #ddd;
+            cursor:pointer;
+            transition:0.3s;
+            min-width:170px;
+            justify-content:center;
+        }
+
+        .profile-box:hover{
+            background:#eef9f8;
+            border-color:#1e8f83;
+        }
+
+        .avatar{
+            width:42px;
+            height:42px;
+            border-radius:50%;
+            background:#1e8f83;
+            color:white;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:600;
+            font-size:18px;
+            flex-shrink:0;
+        }
+
+        .profile-name{
+            font-weight:600;
+            color:#222;
+            white-space:nowrap;
+        }
+
+        .profile-dropdown{
+            position:absolute;
+            right:0;
+            top:62px;
+            width:280px;
+            background:white;
+            border-radius:20px;
+            box-shadow:0 12px 30px rgba(0,0,0,0.18);
+            display:none;
+            overflow:hidden;
+            z-index:9999;
+            border:1px solid #eee;
+        }
+
+        .profile-header{
+            text-align:center;
+            padding:22px 20px;
+            background:#f7f7f7;
+        }
+
+        .profile-header .email-text{
+            font-size:13px;
+            color:#666;
+            margin-bottom:14px;
+            word-break:break-word;
+        }
+
+        .big-avatar{
+            width:78px;
+            height:78px;
+            border-radius:50%;
+            background:#1e8f83;
+            color:white;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+            font-weight:600;
+            margin:0 auto 12px;
+        }
+
+        .profile-header h3{
+            font-size:18px;
+            margin-bottom:5px;
+            color:#222;
+        }
+
+        .profile-header p{
+            font-size:13px;
+            color:#666;
+        }
+
+        .profile-actions{
+            display:flex;
+            flex-direction:column;
+            padding:10px;
+        }
+
+        .profile-actions a{
+            padding:12px 14px;
+            border-radius:10px;
+            color:#333;
+            transition:0.3s;
+            display:block;
+        }
+
+        .profile-actions a:hover{
+            background:#eef9f8;
+            color:#1e8f83;
+        }
+
+        /* PAGE CONTENT */
+        .container{
+            width:85%;
+            max-width:1100px;
+            margin:40px auto;
+            background:white;
+            padding:35px;
+            border-radius:22px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        h1{
+            color:#1e8f83;
+            margin-bottom:10px;
+            font-size:2rem;
+        }
+
+        .sub-text{
+            color:#555;
+            line-height:1.7;
+            margin-bottom:20px;
+            font-size:15px;
+        }
+
+        .info-box{
+            margin-bottom:22px;
+            padding:16px 18px;
+            border-radius:12px;
+            background:#eef9f8;
+            border-left:5px solid #1e8f83;
+            color:#285c59;
+            line-height:1.6;
+            font-size:14px;
+        }
+
+        .section-title{
+            margin:24px 0 14px;
+            color:#ef5b7a;
+            font-size:20px;
+            font-weight:600;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:18px;
+        }
+
+        .input-group{
+            display:flex;
+            flex-direction:column;
+        }
+
+        .input-group.full{
+            grid-column:span 2;
+        }
+
+        label{
+            font-size:14px;
+            font-weight:600;
+            margin-bottom:8px;
+            color:#444;
+        }
+
+        input, select, textarea{
+            width:100%;
+            padding:14px;
+            border:1px solid #ddd;
+            border-radius:10px;
+            font-size:15px;
+            outline:none;
+            transition:0.3s;
+            background:#fff;
+        }
+
+        input:focus, select:focus, textarea:focus{
+            border-color:#1e8f83;
+            box-shadow:0 0 0 3px rgba(30,143,131,0.12);
+        }
+
+        textarea{
+            min-height:120px;
+            resize:vertical;
+        }
+
+        button{
+            background:#ff5f73;
+            color:white;
+            border:none;
+            padding:14px 20px;
+            border-radius:10px;
+            cursor:pointer;
+            margin-top:20px;
+            font-size:16px;
+            transition:0.3s;
+            font-weight:600;
+        }
+
+        button:hover{
+            background:#ff4757;
+            transform:translateY(-1px);
+        }
+
+        .flash-message{
+            background:#fff3f4;
+            color:#b00020;
+            border:1px solid #f3b3bb;
+            padding:10px 12px;
+            border-radius:8px;
+            margin-bottom:15px;
+            font-size:14px;
+        }
+
+        .profile-top{
+            display:flex;
+            align-items:center;
+            gap:18px;
+            margin-bottom:20px;
+            padding:18px;
+            background:#fff6f8;
+            border-radius:16px;
+            border:1px solid #f4d9df;
+        }
+
+        .profile-avatar{
+            width:72px;
+            height:72px;
+            border-radius:50%;
+            background:#1e8f83;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:28px;
+            font-weight:600;
+            flex-shrink:0;
+        }
+
+        .profile-top h2{
+            color:#ef5b7a;
+            margin-bottom:6px;
+        }
+
+        .profile-top p{
+            color:#555;
+            font-size:14px;
+        }
+
+        @media(max-width:900px){
+            nav{
+                justify-content:center;
+                padding:20px;
+            }
+
+            .logo{
+                width:100%;
+                text-align:center;
+                margin-bottom:8px;
+            }
+
+            nav ul{
+                justify-content:center;
+            }
+
+            .dropdown-menu{
+                left:50%;
+                transform:translateX(-50%) translateY(10px);
+            }
+
+            .nav-dropdown:hover .dropdown-menu{
+                transform:translateX(-50%) translateY(0);
+            }
+
+            .profile-dropdown{
+                right:auto;
+                left:50%;
+                transform:translateX(-50%);
+                width:260px;
+            }
+        }
+
+        @media(max-width:768px){
+            .grid{
+                grid-template-columns:1fr;
+            }
+
+            .input-group.full{
+                grid-column:span 1;
+            }
+
+            .container{
+                width:92%;
+                padding:24px 18px;
+            }
+
+            .profile-top{
+                flex-direction:column;
+                text-align:center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">💖 OvaCare</div>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+
+        <li class="nav-dropdown">
+            <div class="dropdown-toggle">Test</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('stress_quiz') }}"><i class="fa-solid fa-brain"></i> Stress Quiz</a>
+                <a href="{{ url_for('pcod_test') }}"><i class="fa-solid fa-heart-pulse"></i> PCOD Test</a>
+                <a href="{{ url_for('bmi') }}"><i class="fa-solid fa-calculator"></i> BMI Calculator</a>
+            </div>
+        </li>
+
+        <li class="nav-dropdown">
+            <div class="dropdown-toggle">Plan</div>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('diet') }}"><i class="fa-solid fa-utensils"></i> Diet Plan</a>
+                <a href="{{ url_for('exercise') }}"><i class="fa-solid fa-dumbbell"></i> Exercise Plan</a>
+            </div>
+        </li>
+
+        <li class="nav-dropdown">
+    <div class="dropdown-toggle">Results</div>
+    <div class="dropdown-menu">
+        <a href="{{ url_for('latest_stress_result') }}"><i class="fa-solid fa-file-waveform"></i> Stress Result</a>
+        <a href="{{ url_for('latest_pcod_result') }}"><i class="fa-solid fa-notes-medical"></i> PCOD Result</a>
+    </div>
+</li>
+
+        <li><a href="{{ url_for('chatbot') }}">Chatbot</a></li>
+        <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+        <li class="profile-wrapper" style="display:flex; align-items:center; gap:10px;">
+
+    <!-- 👤 PROFILE -->
+    <div class="profile-box" onclick="toggleProfileMenu()">
+        <div class="avatar">
+            {{ (session.get('user_name') or 'U')[0] | upper }}
+        </div>
+        <span class="profile-name">{{ session.get("user_name") }}</span>
+    </div>
+
+    <div class="profile-dropdown" id="profileMenu">
+        <div class="profile-header">
+            <div class="email-text">{{ session.get('user_email') }}</div>
+            <div class="big-avatar">
+                {{ (session.get('user_name') or 'U')[0] | upper }}
+            </div>
+            <h3>{{ session.get("user_name") }}</h3>
+            <p>Your OvaCare account</p>
+        </div>
+
+        <div class="profile-actions">
+
+    <!-- 🔔 Notification Header (Clickable) -->
+<div onclick="toggleNotif()" style="cursor:pointer; display:flex; align-items:center; justify-content:space-between; padding:10px;">
+
+    <div>
+        <i class="fa-solid fa-bell"></i> Notifications
+    </div>
+
+    {% if unread_count and unread_count > 0 %}
+    <span style="
+        background:red;
+        color:white;
+        font-size:10px;
+        padding:3px 7px;
+        border-radius:50%;
+        font-weight:bold;
+    ">
+        {{ unread_count }}
+    </span>
+    {% endif %}
+
+</div>
+
+<!-- 🔽 Hidden Notification List -->
+<div id="notifSection" style="display:none; padding:10px;">
+
+    {% if notifications %}
+        {% for n in notifications[:5] %}
+            <div style="background:#fff3f5; padding:10px; margin-bottom:8px; border-radius:10px;">
+                <strong style="font-size:13px;">{{ n[1] }}</strong>
+                <p style="font-size:12px; margin:0;">{{ n[2] }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p style="font-size:12px;">No notifications</p>
+    {% endif %}
+
+    <div style="text-align:right;">
+        <a href="{{ url_for('mark_notifications_read_route') }}" style="font-size:12px; color:#1e8f83;">
+            Mark all as read
+        </a>
+    </div>
+
+</div>
+
+    <!-- 👤 Profile Options with Icons -->
+    <a href="{{ url_for('profile') }}">
+        <i class="fa-solid fa-user"></i> My Profile
+    </a>
+
+    <a href="{{ url_for('dashboard') }}">
+        <i class="fa-solid fa-chart-line"></i> Dashboard
+    </a>
+
+    <a href="{{ url_for('logout') }}">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+
+</div>
+    </div>
+</li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>My Profile</h1>
+    <p class="sub-text">
+        This profile belongs to the currently logged-in user account. You can store personal and menstrual details here for personalized recommendations.
+    </p>
+
+    <div class="profile-top">
+        <div class="profile-avatar">
+            {{ (session.get('user_name') or 'U')[0] | upper }}
+        </div>
+        <div>
+            <h2>{{ session.get('user_name') }}</h2>
+            <p>Your personal wellness profile inside your OvaCare account</p>
+        </div>
+    </div>
+
+    <div class="info-box">
+        Your profile data is saved account-wise, so each user will only see and update their own profile after login.
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p class="flash-message">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="post" action="{{ url_for('profile') }}">
+        <div class="section-title">Personal Details</div>
+        <div class="grid">
+            <div class="input-group">
+                <label>Age</label>
+                <input type="number" name="age" placeholder="Age" value="{{ profile[2] if profile else '' }}">
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input type="text" name="phone" placeholder="Phone Number" value="{{ profile[3] if profile else '' }}">
+            </div>
+
+            <div class="input-group">
+                <label>City</label>
+                <input type="text" name="city" placeholder="City" value="{{ profile[4] if profile else '' }}">
+            </div>
+
+            <div class="input-group">
+                <label>Occupation</label>
+                <input type="text" name="occupation" placeholder="Occupation" value="{{ profile[5] if profile else '' }}">
+            </div>
+
+            <div class="input-group">
+                <label>Height (cm)</label>
+                <input type="number" step="0.01" name="height_cm" placeholder="Height (cm)" value="{{ profile[6] if profile else '' }}">
+            </div>
+
+            <div class="input-group">
+                <label>Weight (kg)</label>
+                <input type="number" step="0.01" name="weight_kg" placeholder="Weight (kg)" value="{{ profile[7] if profile else '' }}">
+            </div>
+        </div>
+
+        <div class="section-title">Menstrual Details</div>
+        <div class="grid">
+            <div class="input-group">
+                <label>Menstrual Cycle Length (days)</label>
+                <input type="number" name="menstrual_cycle_length" placeholder="Cycle Length" value="{{ profile[8] if profile else '' }}">
+            </div>
+
+            <div class="input-group">
+                <label>Period Duration (days)</label>
+                <input type="number" name="period_duration" placeholder="Period Duration" value="{{ profile[9] if profile else '' }}">
+            </div>
+
+            <div class="input-group">
+                <label>Last Period Date</label>
+                <input type="date" name="last_period_date" value="{{ profile[10] if profile and profile[10] else '' }}">
+            </div>
+
+            <div class="input-group">
+                <label>Cycle Regular</label>
+                <select name="cycle_regular">
+                    <option value="1" {% if profile and profile[11] == 1 %}selected{% endif %}>Yes</option>
+                    <option value="0" {% if profile and profile[11] == 0 %}selected{% endif %}>No</option>
+                </select>
+            </div>
+
+            <div class="input-group full">
+                <label>Additional Notes</label>
+                <textarea name="notes" placeholder="Additional health notes, symptoms, or personal observations">{{ profile[12] if profile else '' }}</textarea>
+            </div>
+        </div>
+
+        <button type="submit">Save Profile</button>
+    </form>
+</div>
+
+<script>
+    function toggleProfileMenu(){
+        let menu = document.getElementById("profileMenu");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    document.addEventListener("click", function(e){
+        let wrapper = document.querySelector(".profile-wrapper");
+        let menu = document.getElementById("profileMenu");
+
+        if(wrapper && !wrapper.contains(e.target) && menu){
+            menu.style.display = "none";
+        }
+    });
+</script>
+
+<script>
+function toggleNotif() {
+    const box = document.getElementById("notifSection");
+    box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
