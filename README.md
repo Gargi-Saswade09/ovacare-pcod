@@ -24,7 +24,7 @@ It also includes a **chatbot support system** to guide users with basic health a
 
 ---
 
-## 🛠️ Tech Stack (Detailed)
+## 🛠️ Tech Stack 
 
 ### 🎨 Frontend
 
